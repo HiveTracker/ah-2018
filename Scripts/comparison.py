@@ -28,7 +28,6 @@ plt.plot(hivedata[:,0]*scale+shiftx,
 plt.xlabel('x (m)')
 plt.ylabel('y (m)')
 plt.legend()
-plt.show()
 
 # piece-wise linear fit
 controlpoints = np.array([(-0.595, 0.060),
@@ -45,7 +44,7 @@ controlpoints = np.array([(-0.595, 0.060),
 def closestpointonsegment(p,a,b):
     # Find projection of point p on the line defined by: a + t * (b - a)
     linevector = b - a
-    t = np.dot(p - a, linevector) / norm(linevector)
+    t = np.dot(p - a, linevector) / np.dot(linevector, linevector)
     t = max(0, min(1, t)) # clamp to line segment
     return a + t * linevector
 
@@ -64,6 +63,17 @@ def distancetopolygon(p,poly):
     polyB = np.concatenate((poly[1:],poly[0:1]))
     distances = [distancetolinesegment(p,a,b) for a,b in zip(poly,polyB)]
     return np.min(distances)
+
+# Validation of distance calculations: distance map of grid to polygon
+x = np.arange(-0.65,0.25,0.005)
+y = np.arange(-0.25,0.4,0.005)
+vs = np.array([[distancetopolygon(np.array([vx,vy]),
+                                  controlpoints)
+                                  for vx in x]
+                                  for vy in y])
+plt.figure()
+plt.imshow(vs)
+plt.show()
 
 # Compute estimate of tracking error by average distance of points to polygon
 viveerror = np.average([distancetopolygon(p,controlpoints) for p in vivedata])
