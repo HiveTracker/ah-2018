@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Bonsai.Examples.RoomVR</id>
+    <version>1.0.0</version>
+    <title>Bonsai - VR Example</title>
+    <authors>glopes</authors>
+    <owners>glopes</owners>
+    <licenseUrl>https://bitbucket.org/horizongir/bonsai.examples/raw/14485711394f63a0dec3b36479c2cc4ea680addd/LICENSE</licenseUrl>
+    <iconUrl>https://bitbucket.org/horizongir/bonsai/raw/7aacc64dc4647e57362ab310238591dc197fef0d/Resources/Bonsai.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A simple example of an empty VR room using HTC Vive controllers and basestations.</description>
+    <summary>A simple example of an empty VR room using HTC Vive controllers and basestations.</summary>
+    <language>en-US</language>
+    <tags>VR Shaders Example Bonsai Gallery</tags>
+    <dependencies>
+      <dependency id="Bonsai.Core" version="2.3.0" />
+      <dependency id="Bonsai.Shaders" version="0.18.0" />
+      <dependency id="Bonsai.VR" version="0.3.0" />
+      <dependency id="Bonsai.Scripting" version="2.3.0" />
+      <dependency id="Bonsai.Design" version="2.3.0" />
+    </dependencies>
+  </metadata>
+</package>

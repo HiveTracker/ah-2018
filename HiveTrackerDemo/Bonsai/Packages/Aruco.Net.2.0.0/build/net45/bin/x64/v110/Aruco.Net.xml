@@ -1,0 +1,1694 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        "Aruco.Net"
+    </assembly>
+    <members>
+        <member name="M:Aruco.Net.MarkerDetector.Threshold(Aruco.Net.ThresholdMethod,OpenCV.Net.Arr,OpenCV.Net.Arr,System.Double,System.Double)">
+            <summary>
+Thresholds the grayscale image with the specified method.
+</summary>
+            <param name="method">The threshold method to use.</param>
+            <param name="grayscale">The source grayscale image.</param>
+            <param name="threshold">The destination thresholded binary image.</param>
+            <param name="param1">The first parameter of the threshold method.</param>
+            <param name="param2">The second parameter of the threshold method.</param>
+        </member>
+        <member name="M:Aruco.Net.MarkerDetector.Detect(OpenCV.Net.Arr,OpenCV.Net.Mat,OpenCV.Net.Mat,System.Single,System.Boolean)">
+            <summary>
+Detects fiducial markers in the specified image.
+</summary>
+            <param name="input">The source image on which to look for markers.</param>
+            <param name="cameraMatrix">The 3x3 camera matrix.</param>
+            <param name="distortion">The 4x1 lens distortion matrix.</param>
+            <param name="markerSizeMeters">The size of the marker sides, in meters.</param>
+            <param name="setYPerpendicular">
+A value indicating which axis represents the surface normal. If true, the Y axis
+will be set perpendicular to the surface; otherwise, the Z axis will be used.
+</param>
+            <returns>
+A list of detected fiducial markers in the specified image.
+</returns>
+        </member>
+        <member name="M:Aruco.Net.MarkerDetector.Detect(OpenCV.Net.Arr,OpenCV.Net.Mat,OpenCV.Net.Mat,System.Single)">
+            <summary>
+Detects fiducial markers in the specified image.
+</summary>
+            <param name="input">The source image on which to look for markers.</param>
+            <param name="cameraMatrix">The 3x3 camera matrix.</param>
+            <param name="distortion">The 4x1 lens distortion matrix.</param>
+            <param name="markerSizeMeters">The size of the marker sides, in meters.</param>
+            <returns>
+A list of detected fiducial markers in the specified image.
+</returns>
+        </member>
+        <member name="M:Aruco.Net.MarkerDetector.Detect(OpenCV.Net.Arr,OpenCV.Net.Mat,OpenCV.Net.Mat)">
+            <summary>
+Detects fiducial markers in the specified image.
+</summary>
+            <param name="input">The source image on which to look for markers.</param>
+            <param name="cameraMatrix">The 3x3 camera matrix.</param>
+            <param name="distortion">The 4x1 lens distortion matrix.</param>
+            <returns>
+A list of detected fiducial markers in the specified image.
+</returns>
+        </member>
+        <member name="M:Aruco.Net.MarkerDetector.Detect(OpenCV.Net.Arr,Aruco.Net.CameraParameters,System.Single,System.Boolean)">
+            <summary>
+Detects fiducial markers in the specified image.
+</summary>
+            <param name="input">The source image on which to look for markers.</param>
+            <param name="parameters">The intrinsic camera parameters.</param>
+            <param name="markerSizeMeters">The size of the marker sides, in meters.</param>
+            <param name="setYPerpendicular">
+A value indicating which axis represents the surface normal. If true, the Y axis
+will be set perpendicular to the surface; otherwise, the Z axis will be used.
+</param>
+            <returns>
+A list of detected fiducial markers in the specified image.
+</returns>
+        </member>
+        <member name="M:Aruco.Net.MarkerDetector.Detect(OpenCV.Net.Arr,Aruco.Net.CameraParameters,System.Single)">
+            <summary>
+Detects fiducial markers in the specified image.
+</summary>
+            <param name="input">The source image on which to look for markers.</param>
+            <param name="parameters">The intrinsic camera parameters.</param>
+            <param name="markerSizeMeters">The size of the marker sides, in meters.</param>
+            <returns>
+A list of detected fiducial markers in the specified image.
+</returns>
+        </member>
+        <member name="M:Aruco.Net.MarkerDetector.Detect(OpenCV.Net.Arr,Aruco.Net.CameraParameters)">
+            <summary>
+Detects fiducial markers in the specified image.
+</summary>
+            <param name="input">The source image on which to look for markers.</param>
+            <param name="parameters">The intrinsic camera parameters.</param>
+            <returns>
+A list of detected fiducial markers in the specified image.
+</returns>
+        </member>
+        <member name="M:Aruco.Net.MarkerDetector.CopyThresholdedImage(OpenCV.Net.Arr)">
+            <summary>
+Copies the thresholding result into the specified image for visualization and
+calibration purposes.
+</summary>
+            <param name="image">The destination image for the thresholding result.</param>
+        </member>
+        <member name="P:Aruco.Net.MarkerDetector.DesiredSpeed">
+            <summary>
+Gets or sets the desired speed of internal processes. If you need maximum speed at
+the cost of a lower detection rate set it to 3, otherwise use 0 for a precise but
+slow detection.
+</summary>
+        </member>
+        <member name="P:Aruco.Net.MarkerDetector.ErosionEnabled">
+            <summary>
+Gets or sets a value indicating whether the erosion process will be applied.
+This property must be set to <b>true</b> for chessboard like boards.
+</summary>
+        </member>
+        <member name="P:Aruco.Net.MarkerDetector.CornerRefinement">
+            <summary>
+Gets or sets the corner refinement method.
+</summary>
+        </member>
+        <member name="P:Aruco.Net.MarkerDetector.MaxSize">
+            <summary>
+Gets or sets the maximum marker size as a fraction of the image size.
+</summary>
+        </member>
+        <member name="P:Aruco.Net.MarkerDetector.MinSize">
+            <summary>
+Gets or sets the minimum marker size as a fraction of the image size.
+</summary>
+        </member>
+        <member name="P:Aruco.Net.MarkerDetector.Param2">
+            <summary>
+Gets or sets the second parameter of the threshold method.
+</summary>
+        </member>
+        <member name="P:Aruco.Net.MarkerDetector.Param1">
+            <summary>
+Gets or sets the first parameter of the threshold method.
+</summary>
+        </member>
+        <member name="P:Aruco.Net.MarkerDetector.ThresholdMethod">
+            <summary>
+Gets or sets the threshold method.
+</summary>
+        </member>
+        <member name="M:Aruco.Net.MarkerDetector.#ctor">
+            <summary>
+Initializes a new instance of the <see cref="T:Aruco.Net.MarkerDetector" /> class.
+</summary>
+        </member>
+        <member name="T:Aruco.Net.MarkerDetector">
+            <summary>
+Represents the marker detection procedure.
+</summary>
+        </member>
+        <member name="T:Aruco.Net.CornerRefinementMethod">
+            <summary>
+Specifies the available methods for corner refinement.
+</summary>
+        </member>
+        <member name="F:Aruco.Net.CornerRefinementMethod.Lines">
+            <summary>
+Specifies a corner refinement method based on interpolating contour lines.
+</summary>
+        </member>
+        <member name="F:Aruco.Net.CornerRefinementMethod.SubPix">
+            <summary>
+Specifies a corner refinement method with sub-pixel accuracy.
+</summary>
+        </member>
+        <member name="F:Aruco.Net.CornerRefinementMethod.Harris">
+            <summary>
+Specifies a corner refinement method based on the Harris operator.
+</summary>
+        </member>
+        <member name="F:Aruco.Net.CornerRefinementMethod.None">
+            <summary>
+Specifies that no corner refinement should be performed.
+</summary>
+        </member>
+        <member name="T:Aruco.Net.ThresholdMethod">
+            <summary>
+Specifies the available image thresholding methods.
+</summary>
+        </member>
+        <member name="F:Aruco.Net.ThresholdMethod.Canny">
+            <summary>
+Specifies a segmentation method based on the Canny edge detector.
+</summary>
+        </member>
+        <member name="F:Aruco.Net.ThresholdMethod.AdaptiveThreshold">
+            <summary>
+Specifies a segmentation method based on an adaptive threshold.
+</summary>
+        </member>
+        <member name="F:Aruco.Net.ThresholdMethod.FixedThreshold">
+            <summary>
+Specifies a segmentation method based on a fixed threshold.
+</summary>
+        </member>
+        <member name="M:Aruco.Net.BoardDetector.Detect(System.Collections.Generic.IList`1{Aruco.Net.Marker},Aruco.Net.BoardConfiguration,OpenCV.Net.Mat,OpenCV.Net.Mat,System.Single)">
+            <summary>
+Detects fiducial markers in the specified image.
+</summary>
+            <param name="detectedMarkers">The list of previously detected fiducial markers.</param>
+            <param name="boardConfiguration">The configuration of the marker board.</param>
+            <param name="cameraMatrix">The 3x3 camera matrix.</param>
+            <param name="distortion">The 4x1 lens distortion matrix.</param>
+            <param name="markerSizeMeters">The size of the marker sides, in meters.</param>
+            <returns>
+The detected marker board.
+</returns>
+        </member>
+        <member name="M:Aruco.Net.BoardDetector.Detect(System.Collections.Generic.IList`1{Aruco.Net.Marker},Aruco.Net.BoardConfiguration,OpenCV.Net.Mat,OpenCV.Net.Mat)">
+            <summary>
+Detects fiducial markers in the specified image.
+</summary>
+            <param name="detectedMarkers">The list of previously detected fiducial markers.</param>
+            <param name="boardConfiguration">The configuration of the marker board.</param>
+            <param name="cameraMatrix">The 3x3 camera matrix.</param>
+            <param name="distortion">The 4x1 lens distortion matrix.</param>
+            <returns>
+The detected marker board.
+</returns>
+        </member>
+        <member name="M:Aruco.Net.BoardDetector.Detect(System.Collections.Generic.IList`1{Aruco.Net.Marker},Aruco.Net.BoardConfiguration,Aruco.Net.CameraParameters,System.Single)">
+            <summary>
+Detects fiducial markers in the specified image.
+</summary>
+            <param name="detectedMarkers">The list of previously detected fiducial markers.</param>
+            <param name="boardConfiguration">The configuration of the marker board.</param>
+            <param name="parameters">The intrinsic camera parameters.</param>
+            <param name="markerSizeMeters">The size of the marker sides, in meters.</param>
+            <returns>
+The detected marker board.
+</returns>
+        </member>
+        <member name="M:Aruco.Net.BoardDetector.Detect(System.Collections.Generic.IList`1{Aruco.Net.Marker},Aruco.Net.BoardConfiguration,Aruco.Net.CameraParameters)">
+            <summary>
+Detects fiducial markers in the specified image.
+</summary>
+            <param name="detectedMarkers">The list of previously detected fiducial markers.</param>
+            <param name="boardConfiguration">The configuration of the marker board.</param>
+            <param name="parameters">The intrinsic camera parameters.</param>
+            <returns>
+The detected marker board.
+</returns>
+        </member>
+        <member name="M:Aruco.Net.BoardDetector.#ctor">
+            <summary>
+Initializes a new instance of the <see cref="T:Aruco.Net.BoardDetector" /> class.
+</summary>
+        </member>
+        <member name="T:Aruco.Net.BoardDetector">
+            <summary>
+Represents the marker board detection procedure.
+</summary>
+        </member>
+        <member name="M:Aruco.Net.BoardConfiguration.ReadFromFile(System.String)">
+            <summary>
+Reads the marker board configuration from a file saved with <see cref="M:Aruco.Net.BoardConfiguration.SaveToFile(System.String)" />.
+</summary>
+            <param name="fileName">The file containing the board configuration.</param>
+        </member>
+        <member name="M:Aruco.Net.BoardConfiguration.SaveToFile(System.String)">
+            <summary>
+Saves the marker board configuration to a file.
+</summary>
+            <param name="fileName">The file on which to save the board configuration.</param>
+        </member>
+        <member name="P:Aruco.Net.BoardConfiguration.Markers">
+            <summary>
+Gets the configuration list of markers contained in the marker board.
+</summary>
+        </member>
+        <member name="P:Aruco.Net.BoardConfiguration.MarkerInfoType">
+            <summary>
+Gets the units used to specify each marker position.
+</summary>
+        </member>
+        <member name="T:Aruco.Net.BoardConfiguration">
+            <summary>
+Represents the 3D configuration of a marker board.
+</summary>
+        </member>
+        <member name="T:Aruco.Net.MarkerInfoType">
+            <summary>
+Specifies the units that marker position information is expressed in
+for internal processing.
+</summary>
+        </member>
+        <member name="F:Aruco.Net.MarkerInfoType.Meters">
+            <summary>
+Specifies that the marker position information is expressed in meters.
+</summary>
+        </member>
+        <member name="F:Aruco.Net.MarkerInfoType.Pixels">
+            <summary>
+Specifies that the marker position information is expressed in pixels.
+</summary>
+        </member>
+        <member name="F:Aruco.Net.MarkerInfoType.None">
+            <summary>
+Specifies that the units of marker position are not specified.
+</summary>
+        </member>
+        <member name="M:Aruco.Net.DrawingUtils.Draw3dCube(OpenCV.Net.Arr,Aruco.Net.Board,Aruco.Net.CameraParameters)">
+            <summary>
+Draws a 3D reference cube on top of the input image.
+</summary>
+            <param name="image">The image on which to draw the cube.</param>
+            <param name="board">The marker board used to compute the cube position and orientation.</param>
+            <param name="parameters">The camera intrinsic parameters.</param>
+        </member>
+        <member name="M:Aruco.Net.DrawingUtils.Draw3dCube(OpenCV.Net.Arr,Aruco.Net.Marker,Aruco.Net.CameraParameters)">
+            <summary>
+Draws a 3D reference cube on top of the input image.
+</summary>
+            <param name="image">The image on which to draw the cube.</param>
+            <param name="marker">The marker used to compute the cube position and orientation.</param>
+            <param name="parameters">The camera intrinsic parameters.</param>
+        </member>
+        <member name="M:Aruco.Net.DrawingUtils.Draw3dAxis(OpenCV.Net.Arr,Aruco.Net.Board,Aruco.Net.CameraParameters)">
+            <summary>
+Draws a 3D reference axis on top of the input image.
+</summary>
+            <param name="image">The image on which to draw the axis.</param>
+            <param name="board">The marker board used to compute the axis position and orientation.</param>
+            <param name="parameters">The camera intrinsic parameters.</param>
+        </member>
+        <member name="M:Aruco.Net.DrawingUtils.Draw3dAxis(OpenCV.Net.Arr,Aruco.Net.Marker,Aruco.Net.CameraParameters)">
+            <summary>
+Draws a 3D reference axis on top of the input image.
+</summary>
+            <param name="image">The image on which to draw the axis.</param>
+            <param name="marker">The marker used to compute the axis position and orientation.</param>
+            <param name="parameters">The camera intrinsic parameters.</param>
+        </member>
+        <member name="T:Aruco.Net.DrawingUtils">
+            <summary>
+Specifies visualization and debugging drawing methods.
+</summary>
+        </member>
+        <member name="M:Aruco.Net.Board.GetGLModelViewMatrix">
+            <summary>
+Returns the modelview matrix for the marker board given the extrinsic camera
+parameters in OpenGL format.
+</summary>
+            <returns>
+The modelview matrix for the marker board given the extrinsic camera parameters.
+</returns>
+        </member>
+        <member name="P:Aruco.Net.Board.Markers">
+            <summary>
+Gets the list of markers contained in the marker board.
+</summary>
+        </member>
+        <member name="P:Aruco.Net.Board.Likelihood">
+            <summary>
+Gets the likelihood of having found the marker board.
+</summary>
+        </member>
+        <member name="T:Aruco.Net.Board">
+            <summary>
+Represents a marker board, defined by a collection of fiducial markers.
+</summary>
+        </member>
+        <member name="M:aruco.BoardDetector.setYPerperdicular(System.Boolean)">
+By default, the Y axis is set to point up. However this is not the default
+operation mode of opencv, which produces the Z axis pointing up instead. 
+So, to achieve this change, we have to rotate the X axis.
+
+</member>
+        <member name="M:aruco.BoardDetector.detect(std.vector&lt;aruco.Marker&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,aruco.BoardConfiguration!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,aruco.Board*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Mat,cv.Mat,System.Single)">
+Given the markers detected, determines if there is the board passed
+    * @param detectedMarkers result provided by aruco::ArMarkerDetector
+    * @param BConf the board you want to see if is present
+    * @param Bdetected output information of the detected board
+    * @param camMatrix camera matrix with intrinsics
+    * @param distCoeff camera distorsion coeff
+    * @param camMatrix intrinsic camera information.
+    * @param distCoeff camera distorsion coefficient. If set Mat() if is assumed no camera distorion
+    * @param markerSizeMeters size of the marker sides expressed in meters
+    * @return value indicating  the  likelihood of having found the marker
+
+</member>
+        <member name="M:aruco.BoardDetector.getDetectedMarkers">
+Returns the vector of markers detected
+
+</member>
+        <member name="M:aruco.BoardDetector.getMarkerDetector">
+Returns a reference to the internal marker detector
+
+</member>
+        <member name="M:aruco.BoardDetector.getDetectedBoard">
+Returns a reference to the board detected
+
+</member>
+        <member name="M:aruco.BoardDetector.detect(cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+Detect markers, and then, look for the board indicated in setParams()
+@return value indicating  the  likelihood of having found the marker
+
+</member>
+        <member name="M:aruco.BoardDetector.setParams(aruco.BoardConfiguration!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,aruco.CameraParameters!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Single)">
+Use if you plan to let this class to perform marker detection too
+
+</member>
+        <member name="M:aruco.BoardDetector.#ctor(System.Boolean)">
+See discussion in @see enableRotateXAxis.
+   * Do not change unless you know what you are doing
+
+</member>
+        <member name="T:aruco.BoardDetector">
+\brief This class detects AR boards
+ * Version 1.2
+ * There are two modes for board detection.
+ * First, the old way. (You first detect markers with MarkerDetector and then call to detect in this class.
+ * 
+ * Second: New mode, marker detection is included in the class
+ * \code
+ 
+  CameraParameters CP;
+  CP.readFromFile(path_cp)
+  BoardConfiguration BC;
+  BC.readFromFile(path_bc);
+  BoardDetector BD;
+  BD.setParams(BC,CP); //or only BD.setParams(BC)
+  //capture image
+  cv::Mat im;
+  capture_image(im);
+  
+  float prob=BD.detect(im);
+  if (prob&gt;0.3) 
+	CvDrawingUtils::draw3DAxis(im,BD.getDetectedBoard(),CP);
+ 
+ \endcode
+ * 
+
+</member>
+        <member name="M:aruco.Board.readFromFile(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;)">
+Read  this from a file
+
+</member>
+        <member name="M:aruco.Board.saveToFile(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;)">
+Save this from a file
+
+</member>
+        <member name="M:aruco.Board.OgreGetPoseParameters(System.Double*,System.Double*)">
+Returns position vector and orientation quaternion for an Ogre scene node or entity.
+	Use:
+...
+Ogre::Vector3 ogrePos (position[0], position[1], position[2]);
+Ogre::Quaternion  ogreOrient (orientation[0], orientation[1], orientation[2], orientation[3]);
+mySceneNode-&gt;setPosition( ogrePos  );
+mySceneNode-&gt;setOrientation( ogreOrient  );
+...
+
+</member>
+        <member name="M:aruco.Board.glGetModelViewMatrix(System.Double*)">
+Given the extrinsic camera parameters returns the GL_MODELVIEW matrix for opengl.
+    * Setting this matrix, the reference corrdinate system will be set in this board
+
+</member>
+        <member name="M:aruco.BoardConfiguration.readFromFile(cv.FileStorage*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+Reads board info from a file
+
+</member>
+        <member name="M:aruco.BoardConfiguration.saveToFile(cv.FileStorage*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+Saves the board info to a file
+
+</member>
+        <member name="M:aruco.BoardConfiguration.getIdList(std.vector&lt;System.Int32&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Boolean)">
+Set in the list passed the set of the ids 
+
+</member>
+        <member name="M:aruco.BoardConfiguration.getMarkerInfo(System.Int32)">
+Returns the Info of the marker with id specified. If not in the set, throws exception
+
+</member>
+        <member name="M:aruco.BoardConfiguration.getIndexOfMarkerId(System.Int32)">
+Returns the index of the marker with id indicated, if is in the list
+
+</member>
+        <member name="M:aruco.BoardConfiguration.isExpressedInPixels">
+Indicates if the corners are expressed in meters
+
+</member>
+        <member name="M:aruco.BoardConfiguration.isExpressedInMeters">
+Indicates if the corners are expressed in meters
+
+</member>
+        <member name="M:aruco.BoardConfiguration.readFromFile(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;)">
+Reads board info from a file
+
+</member>
+        <member name="M:aruco.BoardConfiguration.saveToFile(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;)">
+Saves the board info to a file
+
+</member>
+        <member name="T:aruco.BoardConfiguration">
+\brief This class defines a board with several markers.
+ * A Board contains several markers so that they are more robustly detected.
+ *
+ * In general, a board is a set of markers. So BoardConfiguration is only a list
+ * of the id of the markers along with the position of their corners.
+ *
+ * The position of the corners can be specified either in pixels (in a non-specific size) or in meters.
+ * The first is the typical case in which you generate the image of  board  and the print it. Since you do not know in advance the real
+ * size of the markers, their corners are specified in pixels, and then, the translation to meters can be made once you know the real size.
+ *
+ * On the other hand, you may want to have the information of your boards in meters. The BoardConfiguration allows you to do so.
+ *
+ * The point is in the mInfoType variable. It can be either PIX or METERS according to your needs.
+ *
+
+</member>
+        <member name="T:aruco.MarkerInfo">
+3d representation of a marker
+
+</member>
+        <member name="M:aruco.MarkerDetector.detectRectangles(cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector&lt;aruco.MarkerDetector.MarkerCandidate&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+Detection of candidates to be markers, i.e., rectangles.
+This function returns in candidates all the rectangles found in a thresolded image
+
+</member>
+        <member name="M:aruco.MarkerDetector.glGetProjectionMatrix(aruco.CameraParameters*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Size_&lt;System.Int32&gt;,cv.Size_&lt;System.Int32&gt;,System.Double*,System.Double,System.Double,System.Boolean)">
+DEPRECATED!!! Use the member function in CameraParameters
+     * 
+     * Given the intrinsic camera parameters returns the GL_PROJECTION matrix for opengl.
+     * PLease NOTE that when using OpenGL, it is assumed no camera distorsion! So, if it is not true, you should have
+     * undistor image
+     *
+     * @param CamMatrix  arameters of the camera specified.
+     * @param orgImgSize size of the original image
+     * @param size of the image/window where to render (can be different from the real camera image). Please not that it must be related to CamMatrix
+     * @param proj_matrix output projection matrix to give to opengl
+     * @param gnear,gfar: visible rendering range
+     * @param invert: indicates if the output projection matrix has to yield a horizontally inverted image because image data has not been stored in the order of glDrawPixels: bottom-to-top.
+
+</member>
+        <member name="M:aruco.MarkerDetector.refineCandidateLines(aruco.MarkerDetector.MarkerCandidate*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+Refine MarkerCandidate Corner using LINES method
+     * @param candidate candidate to refine corners
+
+</member>
+        <member name="M:aruco.MarkerDetector.warp(cv.Mat*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Mat*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Size_&lt;System.Int32&gt;,std.vector&lt;cv.Point_&lt;System.Single&gt;&gt;)">
+Given the iput image with markers, creates an output image with it in the canonical position
+     * @param in input image
+     * @param out image with the marker
+     * @param size of out
+     * @param points 4 corners of the marker in the image in
+     * @return true if the operation succeed
+
+</member>
+        <member name="M:aruco.MarkerDetector.getCandidates">
+Returns a list candidates to be markers (rectangles), for which no valid id was found after calling detectRectangles
+
+</member>
+        <member name="M:aruco.MarkerDetector.detectRectangles(cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector&lt;std.vector&lt;cv.Point_&lt;System.Single&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+Detection of candidates to be markers, i.e., rectangles.
+This function returns in candidates all the rectangles found in a thresolded image
+
+</member>
+        <member name="M:aruco.MarkerDetector.thresHold(System.Int32,cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Mat*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Double,System.Double)">
+-------------------------------------------------
+Methods you may not need
+Thesde methods do the hard work. They have been set public in case you want to do customizations
+-------------------------------------------------
+Thesholds the passed image with the specified method.
+
+</member>
+        <member name="M:aruco.MarkerDetector.pyrDown(System.UInt32)">
+Use an smaller version of the input image for marker detection. 
+     * If your marker is small enough, you can employ an smaller image to perform the detection without noticeable reduction in the precision.
+     * Internally, we are performing a pyrdown operation
+     * 
+     * @param level number of times the image size is divided by 2. Internally, we are performing a pyrdown.
+
+</member>
+        <member name="M:aruco.MarkerDetector.setDesiredSpeed(System.Int32)">
+ Specifies a value to indicate the required speed for the internal processes. If you need maximum speed (at the cost of a lower detection rate),
+ use the value 3, If you rather a more precise and slow detection, set it to 0.
+
+ Actually, the main differences are that in highspeed mode, we employ setCornerRefinementMethod(NONE) and internally, we use a small canonical
+ image to detect the marker. In low speed mode, we use setCornerRefinementMethod(HARRIS) and a bigger size for the canonical marker image
+
+</member>
+        <member name="M:aruco.MarkerDetector.enableErosion(System.Boolean)">
+Enables/Disables erosion process that is REQUIRED for chessboard like boards.
+     * By default, this property is enabled
+
+</member>
+        <member name="M:aruco.MarkerDetector.getMinMaxSize(System.Single*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Single*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+reads the min and max sizes employed
+     * @param min output size of the contour to consider a possible marker as valid (0,1]
+     * @param max output size of the contour to consider a possible marker as valid [0,1)
+     * 
+
+</member>
+        <member name="M:aruco.MarkerDetector.setMinMaxSize(System.Single,System.Single)">
+Specifies the min and max sizes of the markers as a fraction of the image size. By size we mean the maximum
+     * of cols and rows.
+     * @param min size of the contour to consider a possible marker as valid (0,1]
+     * @param max size of the contour to consider a possible marker as valid [0,1)
+     * 
+
+</member>
+        <member name="T:aruco.MarkerDetector.CornerRefinementMethod">
+Methods for corner refinement
+
+</member>
+        <member name="M:aruco.MarkerDetector.getThresholdedImage">
+Returns a reference to the internal image thresholded. It is for visualization purposes and to adjust manually
+     * the parameters
+
+</member>
+        <member name="M:aruco.MarkerDetector.getThresholdParams(System.Double*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Double*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+Set the parameters of the threshold method
+We are currently using the Adptive threshold ee opencv doc of adaptiveThreshold for more info
+  param1: blockSize of the pixel neighborhood that is used to calculate a threshold value for the pixel
+  param2: The constant subtracted from the mean or weighted mean
+
+</member>
+        <member name="M:aruco.MarkerDetector.setThresholdParams(System.Double,System.Double)">
+Set the parameters of the threshold method
+We are currently using the Adptive threshold ee opencv doc of adaptiveThreshold for more info
+  @param param1: blockSize of the pixel neighborhood that is used to calculate a threshold value for the pixel
+  @param param2: The constant subtracted from the mean or weighted mean
+
+</member>
+        <member name="M:aruco.MarkerDetector.getThresholdMethod">
+Returns the current threshold method
+
+</member>
+        <member name="M:aruco.MarkerDetector.setThresholdMethod(aruco.MarkerDetector.ThresholdMethods)">
+Sets the threshold method
+
+</member>
+        <member name="T:aruco.MarkerDetector.ThresholdMethods">
+This set the type of thresholding methods available
+
+</member>
+        <member name="M:aruco.MarkerDetector.detect(cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector&lt;aruco.Marker&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,aruco.CameraParameters,System.Single,System.Boolean)">
+Detects the markers in the image passed
+     *
+     * If you provide information about the camera parameters and the size of the marker, then, the extrinsics of the markers are detected
+     *
+     * @param input input color image
+     * @param detectedMarkers output vector with the markers detected
+     * @param camParams Camera parameters
+     * @param markerSizeMeters size of the marker sides expressed in meters
+     * @param setYPerperdicular If set the Y axis will be perpendicular to the surface. Otherwise, it will be the Z axis
+
+</member>
+        <member name="M:aruco.MarkerDetector.detect(cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector&lt;aruco.Marker&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Mat,cv.Mat,System.Single,System.Boolean)">
+Detects the markers in the image passed
+     *
+     * If you provide information about the camera parameters and the size of the marker, then, the extrinsics of the markers are detected
+     *
+     * @param input input color image
+     * @param detectedMarkers output vector with the markers detected
+     * @param camMatrix intrinsic camera information.
+     * @param distCoeff camera distorsion coefficient. If set Mat() if is assumed no camera distorion
+     * @param markerSizeMeters size of the marker sides expressed in meters
+     * @param setYPerperdicular If set the Y axis will be perpendicular to the surface. Otherwise, it will be the Z axis
+
+</member>
+        <member name="M:aruco.MarkerDetector.#ctor">
+See 
+
+</member>
+        <member name="T:aruco.MarkerDetector">
+\brief Main class for marker detection
+ *
+
+</member>
+        <member name="M:Aruco.Net.CameraParameters.Resize(OpenCV.Net.Size)">
+            <summary>
+Adjusts the parameters to the specified image size.
+</summary>
+            <param name="size">The image resolution used to scale the camera parameters.</param>
+        </member>
+        <member name="M:Aruco.Net.CameraParameters.ReadFromXmlFile(System.String)">
+            <summary>
+Reads the camera parameters from a YAML file generated with the OpenCV
+calibration utility.
+</summary>
+            <param name="fileName">The file containing the camera parameters.</param>
+        </member>
+        <member name="M:Aruco.Net.CameraParameters.SaveToFile(System.String,System.Boolean)">
+            <summary>
+Saves the camera parameters to a file.
+</summary>
+            <param name="fileName">The file on which to save the camera parameters.</param>
+            <param name="inXml">A value indicating whether to use an XML format to save the file.</param>
+        </member>
+        <member name="M:Aruco.Net.CameraParameters.SaveToFile(System.String)">
+            <summary>
+Saves the camera parameters to a file.
+</summary>
+            <param name="fileName">The file on which to save the camera parameters.</param>
+        </member>
+        <member name="M:Aruco.Net.CameraParameters.ReadFromFile(System.String)">
+            <summary>
+Reads the camera parameters from a file saved with <see cref="M:Aruco.Net.CameraParameters.SaveToFile(System.String)" />.
+</summary>
+            <param name="fileName">The file containing the camera parameters.</param>
+        </member>
+        <member name="M:Aruco.Net.CameraParameters.SetParameters(OpenCV.Net.Mat,OpenCV.Net.Mat,OpenCV.Net.Size)">
+            <summary>
+Sets the camera parameters.
+</summary>
+            <param name="cameraMatrix">The 3x3 camera matrix.</param>
+            <param name="distortion">The 4x1 lens distortion matrix.</param>
+            <param name="size">The resolution of the camera.</param>
+        </member>
+        <member name="M:Aruco.Net.CameraParameters.CopyParameters(OpenCV.Net.Mat,OpenCV.Net.Mat,OpenCV.Net.Size@)">
+            <summary>
+Gets a copy of the camera parameters.
+</summary>
+            <param name="cameraMatrix">The 3x3 camera matrix.</param>
+            <param name="distortion">The 4x1 lens distortion matrix.</param>
+            <param name="size">The resolution of the camera.</param>
+        </member>
+        <member name="M:Aruco.Net.CameraParameters.#ctor">
+            <summary>
+Initializes a new instance of the <see cref="T:Aruco.Net.CameraParameters" /> class.
+</summary>
+        </member>
+        <member name="T:Aruco.Net.CameraParameters">
+            <summary>
+Represents the set of camera intrinsic parameters.
+</summary>
+        </member>
+        <member name="M:Aruco.Net.MarkerInfo.GetEnumerator">
+            <summary>
+Returns an enumerator that iterates through the marker corners.
+</summary>
+            <returns>
+An enumerator instance that can be used to iterate through the marker corners.
+</returns>
+        </member>
+        <member name="M:Aruco.Net.MarkerInfo.CopyTo(OpenCV.Net.Point3f[],System.Int32)">
+            <summary>
+Copies the corners in the marker definition to an <see cref="!:System.Array" />,
+starting at a particular <see cref="!:System.Array" /> index.
+</summary>
+            <param name="array">
+The one-dimensional <see cref="!:System.Array" /> that is the destination of
+the corner positions copied from the marker definition.
+</param>
+            <param name="arrayIndex">The zero-based index in array at which copying begins.</param>
+        </member>
+        <member name="M:Aruco.Net.MarkerInfo.RemoveAt(System.Int32)">
+            <summary>
+Removes the corner at the specified index.
+</summary>
+            <param name="index">The zero-based index of the corner to remove.</param>
+        </member>
+        <member name="M:Aruco.Net.MarkerInfo.Insert(System.Int32,OpenCV.Net.Point3f)">
+            <summary>
+Inserts a corner in the marker definition at the specified index.
+</summary>
+            <param name="index">The zero-based index at which the corner should be inserted.</param>
+            <param name="position">The position of the corner to insert into the definition.</param>
+        </member>
+        <member name="M:Aruco.Net.MarkerInfo.IndexOf(OpenCV.Net.Point3f)">
+            <summary>
+Determines the index of a specific corner in the marker definition.
+</summary>
+            <param name="position">The position of the corner to locate in the definition.</param>
+            <returns>
+The index of the corner if found in the marker definition; otherwise, -1.
+</returns>
+        </member>
+        <member name="M:Aruco.Net.MarkerInfo.Contains(OpenCV.Net.Point3f)">
+            <summary>
+Determines whether the marker definition contains the specified corner position.
+</summary>
+            <param name="position">The position of the corner to locate in the definition.</param>
+            <returns>
+                <b>true</b> if the corner was found in the marker definition; otherwise, false.
+</returns>
+        </member>
+        <member name="M:Aruco.Net.MarkerInfo.Remove(OpenCV.Net.Point3f)">
+            <summary>
+Removes a corner from the marker definition.
+</summary>
+            <param name="position">The position of the corner to remove from the definition.</param>
+            <returns>
+                <b>true</b> if the corner was successfully removed from the marker definition;
+otherwise, false.
+</returns>
+        </member>
+        <member name="M:Aruco.Net.MarkerInfo.Add(OpenCV.Net.Point3f)">
+            <summary>
+Adds a corner to the marker definition.
+</summary>
+            <param name="position">The position of the corner to add to the definition.</param>
+        </member>
+        <member name="M:Aruco.Net.MarkerInfo.Clear">
+            <summary>
+Removes all corners from the marker.
+</summary>
+        </member>
+        <member name="P:Aruco.Net.MarkerInfo.Count">
+            <summary>
+Gets the number of corners contained in the marker.
+</summary>
+        </member>
+        <member name="P:Aruco.Net.MarkerInfo.default(System.Int32)">
+            <summary>
+Gets or sets the corner at the specified index.
+</summary>
+        </member>
+        <member name="P:Aruco.Net.MarkerInfo.Id">
+            <summary>
+Gets or sets the id of the marker.
+</summary>
+        </member>
+        <member name="M:Aruco.Net.MarkerInfo.#ctor">
+            <summary>
+Initializes a new instance of the <see cref="T:Aruco.Net.MarkerInfo" /> class.
+</summary>
+        </member>
+        <member name="T:Aruco.Net.MarkerInfo">
+            <summary>
+The 3D representation of a marker in a marker board.
+</summary>
+        </member>
+        <member name="M:aruco.Marker.getArea">
+Returns the area
+
+</member>
+        <member name="M:aruco.Marker.getPerimeter">
+Returns the perimeter of the marker
+
+</member>
+        <member name="M:aruco.Marker.getCenter">
+Returns the centroid of the marker
+
+</member>
+        <member name="M:aruco.Marker.OgreGetPoseParameters(System.Double*,System.Double*)">
+Returns position vector and orientation quaternion for an Ogre scene node or entity.
+	Use:
+...
+Ogre::Vector3 ogrePos (position[0], position[1], position[2]);
+Ogre::Quaternion  ogreOrient (orientation[0], orientation[1], orientation[2], orientation[3]);
+mySceneNode-&gt;setPosition( ogrePos  );
+mySceneNode-&gt;setOrientation( ogreOrient  );
+...
+
+</member>
+        <member name="M:aruco.Marker.glGetModelViewMatrix(System.Double*)">
+Given the extrinsic camera parameters returns the GL_MODELVIEW matrix for opengl.
+     * Setting this matrix, the reference coordinate system will be set in this marker
+
+</member>
+        <member name="M:aruco.Marker.calculateExtrinsics(System.Single,cv.Mat,cv.Mat,System.Boolean)">
+Calculates the extrinsics (Rvec and Tvec) of the marker with respect to the camera
+     * @param markerSize size of the marker side expressed in meters
+     * @param CameraMatrix matrix with camera parameters (fx,fy,cx,cy)
+     * @param Distorsion matrix with distorsion parameters (k1,k2,p1,p2)
+     * @param setYPerperdicular If set the Y axis will be perpendicular to the surface. Otherwise, it will be the Z axis
+
+</member>
+        <member name="M:aruco.Marker.calculateExtrinsics(System.Single,aruco.CameraParameters!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Boolean)">
+Calculates the extrinsics (Rvec and Tvec) of the marker with respect to the camera
+     * @param markerSize size of the marker side expressed in meters
+     * @param CP parmeters of the camera
+     * @param setYPerperdicular If set the Y axis will be perpendicular to the surface. Otherwise, it will be the Z axis
+
+</member>
+        <member name="M:aruco.Marker.draw(cv.Mat*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Scalar_&lt;System.Double&gt;,System.Int32,System.Boolean)">
+Draws this marker in the input image
+
+</member>
+        <member name="M:aruco.Marker.isValid">
+Indicates if this object is valid
+
+</member>
+        <member name="T:aruco.Marker">
+\brief This class represents a marker. It is a vector of the fours corners ot the marker
+ *
+
+</member>
+        <member name="M:Aruco.Net.Marker.ToString">
+            <summary>
+Returns the string representation of the marker instance.
+</summary>
+            <returns>
+The string representation of the marker instance.
+</returns>
+        </member>
+        <member name="M:Aruco.Net.Marker.GetGLModelViewMatrix">
+            <summary>
+Returns the modelview matrix for the marker given the extrinsic camera
+parameters in OpenGL format.
+</summary>
+            <returns>
+The modelview matrix for the marker given the extrinsic camera parameters.
+</returns>
+        </member>
+        <member name="M:Aruco.Net.Marker.Draw(OpenCV.Net.Arr,OpenCV.Net.Scalar,System.Int32,System.Boolean)">
+            <summary>
+Draws this marker in the input image.
+</summary>
+            <param name="image">The image on which to draw the marker.</param>
+            <param name="color">The color used to draw the marker.</param>
+            <param name="lineWidth">The width of the lines used to draw the marker.</param>
+            <param name="writeId">A value indicating whether to draw the marker id.</param>
+        </member>
+        <member name="M:Aruco.Net.Marker.Draw(OpenCV.Net.Arr,OpenCV.Net.Scalar,System.Int32)">
+            <summary>
+Draws this marker in the input image.
+</summary>
+            <param name="image">The image on which to draw the marker.</param>
+            <param name="color">The color used to draw the marker.</param>
+            <param name="lineWidth">The width of the lines used to draw the marker.</param>
+        </member>
+        <member name="M:Aruco.Net.Marker.Draw(OpenCV.Net.Arr,OpenCV.Net.Scalar)">
+            <summary>
+Draws this marker in the input image.
+</summary>
+            <param name="image">The image on which to draw the marker.</param>
+            <param name="color">The color used to draw the marker.</param>
+        </member>
+        <member name="P:Aruco.Net.Marker.Area">
+            <summary>
+Gets the area of the marker.
+</summary>
+        </member>
+        <member name="P:Aruco.Net.Marker.Perimeter">
+            <summary>
+Gets the perimeter of the marker.
+</summary>
+        </member>
+        <member name="P:Aruco.Net.Marker.Center">
+            <summary>
+Gets the centroid of the marker in image space.
+</summary>
+        </member>
+        <member name="P:Aruco.Net.Marker.IsValid">
+            <summary>
+Gets a value indicating whether the marker is valid.
+</summary>
+        </member>
+        <member name="P:Aruco.Net.Marker.Size">
+            <summary>
+Gets the size of the marker sides, in meters.
+</summary>
+        </member>
+        <member name="P:Aruco.Net.Marker.Id">
+            <summary>
+Gets the id of the marker.
+</summary>
+        </member>
+        <member name="M:Aruco.Net.Marker.GetEnumerator">
+            <summary>
+Returns an enumerator that iterates through the marker corners.
+</summary>
+            <returns>
+An enumerator instance that can be used to iterate through the marker corners.
+</returns>
+        </member>
+        <member name="P:Aruco.Net.Marker.Count">
+            <summary>
+Gets the number of corners contained in the marker.
+</summary>
+        </member>
+        <member name="P:Aruco.Net.Marker.default(System.Int32)">
+            <summary>
+Gets the corner at the specified index.
+</summary>
+        </member>
+        <member name="P:Aruco.Net.Marker.Empty">
+            <summary>
+Returns a marker instance with no corner data.
+</summary>
+        </member>
+        <member name="T:Aruco.Net.Marker">
+            <summary>
+Represents a fiducial marker, defined by a vector of its four corners.
+</summary>
+        </member>
+        <member name="M:aruco.CameraParameters.OgreGetProjectionMatrix(cv.Size_&lt;System.Int32&gt;,cv.Size_&lt;System.Int32&gt;,System.Double*,System.Double,System.Double,System.Boolean)">
+setup camera for an Ogre project.
+	Use:
+...
+Ogre::Matrix4 PM(proj_matrix[0], proj_matrix[1], ... , proj_matrix[15]);
+yourCamera-&gt;setCustomProjectionMatrix(true, PM);
+yourCamera-&gt;setCustomViewMatrix(true, Ogre::Matrix4::IDENTITY);
+...
+As in OpenGL, it assumes no camera distorsion
+
+</member>
+        <member name="M:aruco.CameraParameters.glGetProjectionMatrix(cv.Size_&lt;System.Int32&gt;,cv.Size_&lt;System.Int32&gt;,System.Double*,System.Double,System.Double,System.Boolean)">
+Given the intrinsic camera parameters returns the GL_PROJECTION matrix for opengl.
+    * PLease NOTE that when using OpenGL, it is assumed no camera distorsion! So, if it is not true, you should have
+    * undistor image
+    *
+    * @param orgImgSize size of the original image
+    * @param size of the image/window where to render (can be different from the real camera image). Please not that it must be related to CamMatrix
+    * @param proj_matrix output projection matrix to give to opengl
+    * @param gnear,gfar: visible rendering range
+    * @param invert: indicates if the output projection matrix has to yield a horizontally inverted image because image data has not been stored in the order of glDrawPixels: bottom-to-top.
+
+</member>
+        <member name="M:aruco.CameraParameters.getCameraLocation(cv.Mat,cv.Mat)">
+Returns the location of the camera in the reference system given by the rotation and translation vectors passed
+     * NOT TESTED
+
+</member>
+        <member name="M:aruco.CameraParameters.resize(cv.Size_&lt;System.Int32&gt;)">
+Adjust the parameters to the size of the image indicated
+
+</member>
+        <member name="M:aruco.CameraParameters.readFromXMLFile(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;)">
+Reads from a YAML file generated with the opencv2.2 calibration utility
+
+</member>
+        <member name="M:aruco.CameraParameters.saveToFile(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,System.Boolean)">
+Saves this to a file
+
+</member>
+        <member name="M:aruco.CameraParameters.readFromFile(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;)">
+Reads the camera parameters from a file generated using saveToFile.
+
+</member>
+        <member name="M:aruco.CameraParameters.op_Assign(aruco.CameraParameters!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+Assign operator
+
+</member>
+        <member name="M:aruco.CameraParameters.isValid">
+Indicates whether this object is valid
+
+</member>
+        <member name="M:aruco.CameraParameters.#ctor(aruco.CameraParameters!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+Copy constructor
+
+</member>
+        <member name="M:aruco.CameraParameters.setParams(cv.Mat,cv.Mat,cv.Size_&lt;System.Int32&gt;)">
+Sets the parameters
+     * @param cameraMatrix 3x3 matrix (fx 0 cx, 0 fy cy, 0 0 1)
+     * @param distorsionCoeff 4x1 matrix (k1,k2,p1,p2)
+     * @param size image size
+
+</member>
+        <member name="M:aruco.CameraParameters.#ctor(cv.Mat,cv.Mat,cv.Size_&lt;System.Int32&gt;)">
+Creates the object from the info passed
+     * @param cameraMatrix 3x3 matrix (fx 0 cx, 0 fy cy, 0 0 1)
+     * @param distorsionCoeff 4x1 matrix (k1,k2,p1,p2)
+     * @param size image size
+
+</member>
+        <member name="M:aruco.CameraParameters.#ctor">
+Empty constructor
+
+</member>
+        <member name="T:aruco.CameraParameters">
+\brief Parameters of the camera
+
+</member>
+        <member name="M:cv.Retina._convertCvMat2ValarrayBuffer(cv.Mat!System.Runtime.CompilerServices.IsConst,std.valarray&lt;System.Single&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+
+ @param inputMatToConvert : the OpenCV cv::Mat that has to be converted to gray or RGB valarray buffer that will be processed by the retina model
+ @param outputValarrayMatrix : the output valarray
+ @return the input image color mode (color=true, gray levels=false)
+
+</member>
+        <member name="M:cv.Retina._convertValarrayBuffer2cvMat(std.valarray&lt;System.Single&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.UInt32!System.Runtime.CompilerServices.IsConst,System.UInt32!System.Runtime.CompilerServices.IsConst,System.Boolean!System.Runtime.CompilerServices.IsConst,cv.Mat*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+exports a valarray buffer outing from HVStools objects to a cv::Mat in CV_8UC1 (gray level picture) or CV_8UC3 (color) format
+@param grayMatrixToConvert the valarray to export to OpenCV
+@param nbRows : the number of rows of the valarray flatten matrix
+@param nbColumns : the number of rows of the valarray flatten matrix
+@param colorMode : a flag which mentions if matrix is color (true) or graylevel (false)
+@param outBuffer : the output matrix which is reallocated to satisfy Retina output buffer dimensions
+
+</member>
+        <member name="M:cv.Retina.activateContoursProcessing(System.Boolean!System.Runtime.CompilerServices.IsConst)">
+Activate/desactivate the Parvocellular pathway processing (contours information extraction), by default, it is activated
+@param activate: true if Parvocellular (contours information extraction) output should be activated, false if not
+
+</member>
+        <member name="M:cv.Retina.activateMovingContoursProcessing(System.Boolean!System.Runtime.CompilerServices.IsConst)">
+Activate/desactivate the Magnocellular pathway processing (motion information extraction), by default, it is activated
+@param activate: true if Magnocellular output should be activated, false if not
+
+</member>
+        <member name="M:cv.Retina.clearBuffers">
+clear all retina buffers (equivalent to opening the eyes after a long period of eye close ;o)
+
+</member>
+        <member name="M:cv.Retina.setColorSaturation(System.Boolean!System.Runtime.CompilerServices.IsConst,System.Single!System.Runtime.CompilerServices.IsConst)">
+activate color saturation as the final step of the color demultiplexing process
+-&gt; this saturation is a sigmoide function applied to each channel of the demultiplexed image.
+@param saturateColors: boolean that activates color saturation (if true) or desactivate (if false)
+@param colorSaturationValue: the saturation factor
+
+</member>
+        <member name="M:cv.Retina.getMagno(std.valarray&lt;System.Single&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+accessor of the motion channel of the retina (models peripheral vision)
+@param retinaOutput_magno : the output buffer (reallocated if necessary), this output is the original retina filter model output, without any quantification or rescaling
+
+</member>
+        <member name="M:cv.Retina.getMagno(cv.Mat*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+accessor of the motion channel of the retina (models peripheral vision)
+@param retinaOutput_magno : the output buffer (reallocated if necessary), this output is rescaled for standard 8bits image processing use in OpenCV
+
+</member>
+        <member name="M:cv.Retina.getParvo(std.valarray&lt;System.Single&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+accessor of the details channel of the retina (models foveal vision)
+@param retinaOutput_parvo : the output buffer (reallocated if necessary), this output is the original retina filter model output, without any quantification or rescaling
+
+</member>
+        <member name="M:cv.Retina.getParvo(cv.Mat*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+accessor of the details channel of the retina (models foveal vision)
+@param retinaOutput_parvo : the output buffer (reallocated if necessary), this output is rescaled for standard 8bits image processing use in OpenCV
+
+</member>
+        <member name="M:cv.Retina.run(cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+method which allows retina to be applied on an input image, after run, encapsulated retina module is ready to deliver its outputs using dedicated acccessors, see getParvo and getMagno methods
+@param inputImage : the input cv::Mat image to be processed, can be gray level or BGR coded in any format (from 8bit to 16bits)
+
+</member>
+        <member name="M:cv.Retina.setupIPLMagnoChannel(System.Boolean!System.Runtime.CompilerServices.IsConst,System.Single!System.Runtime.CompilerServices.IsConst,System.Single!System.Runtime.CompilerServices.IsConst,System.Single!System.Runtime.CompilerServices.IsConst,System.Single!System.Runtime.CompilerServices.IsConst,System.Single!System.Runtime.CompilerServices.IsConst,System.Single!System.Runtime.CompilerServices.IsConst,System.Single!System.Runtime.CompilerServices.IsConst)">
+set parameters values for the Inner Plexiform Layer (IPL) magnocellular channel
+this channel processes signals outpint from OPL processing stage in peripheral vision, it allows motion information enhancement. It is decorrelated from the details channel. See reference paper for more details.
+@param normaliseOutput : specifies if (true) output is rescaled between 0 and 255 of not (false)
+@param parasolCells_beta: the low pass filter gain used for local contrast adaptation at the IPL level of the retina (for ganglion cells local adaptation), typical value is 0
+@param parasolCells_tau: the low pass filter time constant used for local contrast adaptation at the IPL level of the retina (for ganglion cells local adaptation), unit is frame, typical value is 0 (immediate response)
+@param parasolCells_k: the low pass filter spatial constant used for local contrast adaptation at the IPL level of the retina (for ganglion cells local adaptation), unit is pixels, typical value is 5
+@param amacrinCellsTemporalCutFrequency: the time constant of the first order high pass fiter of the magnocellular way (motion information channel), unit is frames, tipicall value is 5
+@param V0CompressionParameter: the compression strengh of the ganglion cells local adaptation output, set a value between 160 and 250 for best results, a high value increases more the low value sensitivity... and the output saturates faster, recommended value: 200
+@param localAdaptintegration_tau: specifies the temporal constant of the low pas filter involved in the computation of the local "motion mean" for the local adaptation computation
+@param localAdaptintegration_k: specifies the spatial constant of the low pas filter involved in the computation of the local "motion mean" for the local adaptation computation
+
+</member>
+        <member name="M:cv.Retina.setupOPLandIPLParvoChannel(System.Boolean!System.Runtime.CompilerServices.IsConst,System.Boolean!System.Runtime.CompilerServices.IsConst,System.Single!System.Runtime.CompilerServices.IsConst,System.Single!System.Runtime.CompilerServices.IsConst,System.Single!System.Runtime.CompilerServices.IsConst,System.Single!System.Runtime.CompilerServices.IsConst,System.Single!System.Runtime.CompilerServices.IsConst,System.Single!System.Runtime.CompilerServices.IsConst,System.Single!System.Runtime.CompilerServices.IsConst)">
+setup the OPL and IPL parvo channels (see biologocal model)
+OPL is referred as Outer Plexiform Layer of the retina, it allows the spatio-temporal filtering which withens the spectrum and reduces spatio-temporal noise while attenuating global luminance (low frequency energy)
+IPL parvo is the OPL next processing stage, it refers to Inner Plexiform layer of the retina, it allows high contours sensitivity in foveal vision.
+for more informations, please have a look at the paper Benoit A., Caplier A., Durette B., Herault, J., "USING HUMAN VISUAL SYSTEM MODELING FOR BIO-INSPIRED LOW LEVEL IMAGE PROCESSING", Elsevier, Computer Vision and Image Understanding 114 (2010), pp. 758-773, DOI: http://dx.doi.org/10.1016/j.cviu.2010.01.011
+@param colorMode : specifies if (true) color is processed of not (false) to then processing gray level image
+@param normaliseOutput : specifies if (true) output is rescaled between 0 and 255 of not (false)
+@param photoreceptorsLocalAdaptationSensitivity: the photoreceptors sensitivity renage is 0-1 (more log compression effect when value increases)
+@param photoreceptorsTemporalConstant: the time constant of the first order low pass filter of the photoreceptors, use it to cut high temporal frequencies (noise or fast motion), unit is frames, typical value is 1 frame
+@param photoreceptorsSpatialConstant: the spatial constant of the first order low pass filter of the photoreceptors, use it to cut high spatial frequencies (noise or thick contours), unit is pixels, typical value is 1 pixel
+@param horizontalCellsGain: gain of the horizontal cells network, if 0, then the mean value of the output is zero, if the parameter is near 1, then, the luminance is not filtered and is still reachable at the output, typicall value is 0
+@param HcellsTemporalConstant: the time constant of the first order low pass filter of the horizontal cells, use it to cut low temporal frequencies (local luminance variations), unit is frames, typical value is 1 frame, as the photoreceptors
+@param HcellsSpatialConstant: the spatial constant of the first order low pass filter of the horizontal cells, use it to cut low spatial frequencies (local luminance), unit is pixels, typical value is 5 pixel, this value is also used for local contrast computing when computing the local contrast adaptation at the ganglion cells level (Inner Plexiform Layer parvocellular channel model)
+@param ganglionCellsSensitivity: the compression strengh of the ganglion cells local adaptation output, set a value between 160 and 250 for best results, a high value increases more the low value sensitivity... and the output saturates faster, recommended value: 230
+
+</member>
+        <member name="M:cv.Retina.write(cv.FileStorage*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+write xml/yml formated parameters information
+@param fs : a cv::Filestorage object ready to be filled
+
+</member>
+        <member name="M:cv.Retina.write(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;)">
+write xml/yml formated parameters information
+@rparam fs : the filename of the xml file that will be open and writen with formatted parameters information
+
+</member>
+        <member name="M:cv.Retina.printSetup">
+parameters setup display method
+@return a string which contains formatted parameters information
+
+</member>
+        <member name="M:cv.Retina.getParameters">
+@return the current parameters setup
+
+</member>
+        <member name="M:cv.Retina.setup(cv.Retina.RetinaParameters)">
+     * try to open an XML retina parameters file to adjust current retina instance setup
+     * =&gt; if the xml file does not exist, then default setup is applied
+     * =&gt; warning, Exceptions are thrown if read XML file is not valid
+     * @param newParameters : a parameters structures updated with the new target configuration
+         * @param applyDefaultSetupOnFailure : set to true if an error must be thrown on error
+
+</member>
+        <member name="M:cv.Retina.setup(cv.FileStorage*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Boolean!System.Runtime.CompilerServices.IsConst)">
+try to open an XML retina parameters file to adjust current retina instance setup
+=&gt; if the xml file does not exist, then default setup is applied
+=&gt; warning, Exceptions are thrown if read XML file is not valid
+@param fs : the open Filestorage which contains retina parameters
+@param applyDefaultSetupOnFailure : set to true if an error must be thrown on error
+
+</member>
+        <member name="M:cv.Retina.setup(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,System.Boolean!System.Runtime.CompilerServices.IsConst)">
+     * try to open an XML retina parameters file to adjust current retina instance setup
+     * =&gt; if the xml file does not exist, then default setup is applied
+     * =&gt; warning, Exceptions are thrown if read XML file is not valid
+     * @param retinaParameterFile : the parameters filename
+         * @param applyDefaultSetupOnFailure : set to true if an error must be thrown on error
+
+</member>
+        <member name="M:cv.Retina.outputSize">
+retreive retina output buffer size
+
+</member>
+        <member name="M:cv.Retina.inputSize">
+retreive retina input buffer size
+
+</member>
+        <member name="M:cv.Retina.#ctor(cv.Size_&lt;System.Int32&gt;,System.Boolean!System.Runtime.CompilerServices.IsConst,cv.RETINA_COLORSAMPLINGMETHOD,System.Boolean!System.Runtime.CompilerServices.IsConst,System.Double!System.Runtime.CompilerServices.IsConst,System.Double!System.Runtime.CompilerServices.IsConst)">
+     * Complete Retina filter constructor which allows all basic structural parameters definition
+         * @param inputSize : the input frame size
+     * @param colorMode : the chosen processing mode : with or without color processing
+     * @param colorSamplingMethod: specifies which kind of color sampling will be used
+     * @param useRetinaLogSampling: activate retina log sampling, if true, the 2 following parameters can be used
+     * @param reductionFactor: only usefull if param useRetinaLogSampling=true, specifies the reduction factor of the output frame (as the center (fovea) is high resolution and corners can be underscaled, then a reduction of the output is allowed without precision leak
+     * @param samplingStrenght: only usefull if param useRetinaLogSampling=true, specifies the strenght of the log scale that is applied
+
+</member>
+        <member name="M:cv.Retina.#ctor(cv.Size_&lt;System.Int32&gt;)">
+Main constructor with most commun use setup : create an instance of color ready retina model
+@param inputSize : the input frame size
+
+</member>
+        <member name="T:cv.Retina">
+ @class Retina a wrapper class which allows the Gipsa/Listic Labs model to be used.
+ This retina model allows spatio-temporal image processing (applied on still images, video sequences).
+ As a summary, these are the retina model properties:
+ =&gt; It applies a spectral whithening (mid-frequency details enhancement)
+ =&gt; high frequency spatio-temporal noise reduction
+ =&gt; low frequency luminance to be reduced (luminance range compression)
+ =&gt; local logarithmic luminance compression allows details to be enhanced in low light conditions
+
+ USE : this model can be used basically for spatio-temporal video effects but also for :
+      _using the getParvo method output matrix : texture analysiswith enhanced signal to noise ratio and enhanced details robust against input images luminance ranges
+      _using the getMagno method output matrix : motion analysis also with the previously cited properties
+
+ for more information, reer to the following papers :
+ Benoit A., Caplier A., Durette B., Herault, J., "USING HUMAN VISUAL SYSTEM MODELING FOR BIO-INSPIRED LOW LEVEL IMAGE PROCESSING", Elsevier, Computer Vision and Image Understanding 114 (2010), pp. 758-773, DOI: http://dx.doi.org/10.1016/j.cviu.2010.01.011
+ Vision: Images, Signals and Neural Networks: Models of Neural Processing in Visual Perception (Progress in Neural Processing),By: Jeanny Herault, ISBN: 9814273686. WAPI (Tower ID): 113266891.
+
+ The retina filter includes the research contributions of phd/research collegues from which code has been redrawn by the author :
+ _take a look at the retinacolor.hpp module to discover Brice Chaix de Lavarene color mosaicing/demosaicing and the reference paper:
+ ====&gt; B. Chaix de Lavarene, D. Alleysson, B. Durette, J. Herault (2007). "Efficient demosaicing through recursive filtering", IEEE International Conference on Image Processing ICIP 2007
+ _take a look at imagelogpolprojection.hpp to discover retina spatial log sampling which originates from Barthelemy Durette phd with Jeanny Herault. A Retina / V1 cortex projection is also proposed and originates from Jeanny's discussions.
+ ====&gt; more informations in the above cited Jeanny Heraults's book.
+
+</member>
+        <member name="M:cv.LogPolar_Adjacent.Dispose">
+Destructor
+
+</member>
+        <member name="M:cv.LogPolar_Adjacent.to_cartesian(cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+Transformation from cortical image to retinal (inverse log-polar) image.
+\param source the cortical image
+\return the transformed image (retinal image)
+
+</member>
+        <member name="M:cv.LogPolar_Adjacent.to_cortical(cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+Transformation from Cartesian image to cortical (log-polar) image.
+\param source the Cartesian image
+\return the transformed image (cortical image)
+
+</member>
+        <member name="M:cv.LogPolar_Adjacent.#ctor(System.Int32,System.Int32,cv.Point_&lt;System.Int32&gt;,System.Int32,System.Double,System.Double,System.Int32,System.Int32,System.Int32)">
+Constructor
+\param w the width of the input image
+\param h the height of the input image
+\param center the transformation center: where the output precision is maximal
+\param R the number of rings of the cortical image (default value 70 pixel)
+\param ro0 the radius of the blind spot (default value 3 pixel)
+\param smin the size of the subpixel (default value 0.25 pixel)
+\param full \a 1 (default value) means that the retinal image (the inverse transform) is computed within the circumscribing circle.
+            \a 0 means that the retinal image is computed within the inscribed circle.
+\param S the number of sectors of the cortical image (default value 70 pixel).
+         Its value is usually internally computed to obtain a pixel aspect ratio equals to 1.
+\param sp \a 1 (default value) means that the parameter \a S is internally computed.
+          \a 0 means that the parameter \a S is provided by the user.
+
+</member>
+        <member name="T:cv.LogPolar_Adjacent">
+ Adjacent receptive fields technique
+
+All the Cartesian pixels, whose coordinates in the cortical domain share the same integer part, are assigned to the same RF.
+The precision of the boundaries of the RF can be improved by breaking each pixel into subpixels and assigning each of them to the correct RF.
+This technique is implemented from: Traver, V., Pla, F.: Log-polar mapping template design: From task-level requirements
+to geometry parameters. Image Vision Comput. 26(10) (2008) 1354-1370
+
+More details can be found in http://dx.doi.org/10.1007/978-3-642-23968-7_5
+
+</member>
+        <member name="M:cv.LogPolar_Overlapping.Dispose">
+Destructor
+
+</member>
+        <member name="M:cv.LogPolar_Overlapping.to_cartesian(cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+Transformation from cortical image to retinal (inverse log-polar) image.
+\param source the cortical image
+\return the transformed image (retinal image)
+
+</member>
+        <member name="M:cv.LogPolar_Overlapping.to_cortical(cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+Transformation from Cartesian image to cortical (log-polar) image.
+\param source the Cartesian image
+\return the transformed image (cortical image)
+
+</member>
+        <member name="M:cv.LogPolar_Overlapping.#ctor(System.Int32,System.Int32,cv.Point_&lt;System.Int32&gt;,System.Int32,System.Double,System.Int32,System.Int32,System.Int32)">
+Constructor
+\param w the width of the input image
+\param h the height of the input image
+\param center the transformation center: where the output precision is maximal
+\param R the number of rings of the cortical image (default value 70 pixel)
+\param ro0 the radius of the blind spot (default value 3 pixel)
+\param full \a 1 (default value) means that the retinal image (the inverse transform) is computed within the circumscribing circle.
+            \a 0 means that the retinal image is computed within the inscribed circle.
+\param S the number of sectors of the cortical image (default value 70 pixel).
+         Its value is usually internally computed to obtain a pixel aspect ratio equals to 1.
+\param sp \a 1 (default value) means that the parameter \a S is internally computed.
+          \a 0 means that the parameter \a S is provided by the user.
+
+</member>
+        <member name="T:cv.LogPolar_Overlapping">
+Overlapping circular receptive fields technique
+
+The Cartesian plane is divided in two regions: the fovea and the periphery.
+The fovea (oversampling) is handled by using the bilinear interpolation technique described above, whereas in
+the periphery we use the overlapping Gaussian circular RFs.
+
+More details can be found in http://dx.doi.org/10.1007/978-3-642-23968-7_5
+
+</member>
+        <member name="M:cv.LogPolar_Interp.Dispose">
+Destructor
+
+</member>
+        <member name="M:cv.LogPolar_Interp.to_cartesian(cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+Transformation from cortical image to retinal (inverse log-polar) image.
+\param source the cortical image
+\return the transformed image (retinal image)
+
+</member>
+        <member name="M:cv.LogPolar_Interp.to_cortical(cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+Transformation from Cartesian image to cortical (log-polar) image.
+\param source the Cartesian image
+\return the transformed image (cortical image)
+
+</member>
+        <member name="M:cv.LogPolar_Interp.#ctor(System.Int32,System.Int32,cv.Point_&lt;System.Int32&gt;,System.Int32,System.Double,System.Int32,System.Int32,System.Int32,System.Int32)">
+Constructor
+\param w the width of the input image
+\param h the height of the input image
+\param center the transformation center: where the output precision is maximal
+\param R the number of rings of the cortical image (default value 70 pixel)
+\param ro0 the radius of the blind spot (default value 3 pixel)
+\param full \a 1 (default value) means that the retinal image (the inverse transform) is computed within the circumscribing circle.
+            \a 0 means that the retinal image is computed within the inscribed circle.
+\param S the number of sectors of the cortical image (default value 70 pixel).
+         Its value is usually internally computed to obtain a pixel aspect ratio equals to 1.
+\param sp \a 1 (default value) means that the parameter \a S is internally computed.
+          \a 0 means that the parameter \a S is provided by the user.
+
+</member>
+        <member name="T:cv.LogPolar_Interp">
+Bilinear interpolation technique.
+
+The value of a desired cortical pixel is obtained through a bilinear interpolation of the values
+of the four nearest neighbouring Cartesian pixels to the center of the RF.
+The same principle is applied to the inverse transformation.
+
+More details can be found in http://dx.doi.org/10.1007/978-3-642-23968-7_5
+
+</member>
+        <member name="M:cv.linemod.getDefaultLINEMOD">
+ \brief Factory function for detector using LINE-MOD algorithm with color gradients
+ and depth normals.
+
+ Default parameter settings suitable for VGA images.
+
+</member>
+        <member name="M:cv.linemod.getDefaultLINE">
+ \brief Factory function for detector using LINE algorithm with color gradients.
+
+ Default parameter settings suitable for VGA images.
+
+</member>
+        <member name="M:cv.linemod.Detector.getTemplates(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Int32)">
+ \brief Get the template pyramid identified by template_id.
+
+ For example, with 2 modalities (Gradient, Normal) and two pyramid levels
+ (L0, L1), the order is (GradientL0, NormalL0, GradientL1, NormalL1).
+
+</member>
+        <member name="M:cv.linemod.Detector.pyramidLevels">
+\brief Get number of pyramid levels used by this detector.
+
+</member>
+        <member name="M:cv.linemod.Detector.getT(System.Int32)">
+\brief Get sampling step T at pyramid_level.
+
+</member>
+        <member name="M:cv.linemod.Detector.getModalities">
+ \brief Get the modalities used by this detector.
+
+ You are not permitted to add/remove modalities, but you may dynamic_cast them to
+ tweak parameters.
+
+</member>
+        <member name="M:cv.linemod.Detector.addSyntheticTemplate(std.vector&lt;cv.linemod.Template&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+\brief Add a new object template computed by external means.
+
+</member>
+        <member name="M:cv.linemod.Detector.addTemplate(std.vector&lt;cv.Mat&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Rect_&lt;System.Int32&gt;*)">
+ \brief Add new object template.
+
+ \param      sources      Source images, one for each modality.
+ \param      class_id     Object class ID.
+ \param      object_mask  Mask separating object from background.
+ \param[out] bounding_box Optionally return bounding box of the extracted features.
+
+ \return Template ID, or -1 if failed to extract a valid template.
+
+</member>
+        <member name="M:cv.linemod.Detector.#ctor(std.vector&lt;cv.Ptr&lt;cv.linemod.Modality&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector&lt;System.Int32&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+ \brief Constructor.
+
+ \param modalities       Modalities to use (color gradients, depth normals, ...).
+ \param T_pyramid        Value of the sampling step T at each pyramid level. The
+                         number of pyramid levels is T_pyramid.size().
+
+</member>
+        <member name="M:cv.linemod.Detector.#ctor">
+\brief Empty constructor, initialize with read().
+
+</member>
+        <member name="T:cv.linemod.Detector">
+\brief Object detector using the LINE template matching algorithm with any set of
+modalities.
+
+</member>
+        <member name="M:cv.linemod.Match.op_LessThan(cv.linemod.Match!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+Sort matches with high similarity to the front
+</member>
+        <member name="T:cv.linemod.Match">
+\brief Represents a successful template match.
+
+</member>
+        <member name="M:cv.linemod.colormap(cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Mat*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+\brief Debug function to colormap a quantized image for viewing.
+
+</member>
+        <member name="M:cv.linemod.DepthNormal.#ctor(System.Int32,System.Int32,System.UInt64,System.Int32)">
+ \brief Constructor.
+
+ \param distance_threshold   Ignore pixels beyond this distance.
+ \param difference_threshold When computing normals, ignore contributions of pixels whose
+                             depth difference with the central pixel is above this threshold.
+ \param num_features         How many features a template must contain.
+ \param extract_threshold    Consider as candidate feature only if there are no differing
+                             orientations within a distance of extract_threshold.
+
+</member>
+        <member name="M:cv.linemod.DepthNormal.#ctor">
+\brief Default constructor. Uses reasonable default parameter values.
+
+</member>
+        <member name="T:cv.linemod.DepthNormal">
+\brief Modality that computes quantized surface normals from a dense depth map.
+
+</member>
+        <member name="M:cv.linemod.ColorGradient.#ctor(System.Single,System.UInt64,System.Single)">
+ \brief Constructor.
+
+ \param weak_threshold   When quantizing, discard gradients with magnitude less than this.
+ \param num_features     How many features a template must contain.
+ \param strong_threshold Consider as candidate features only gradients whose norms are
+                         larger than this.
+
+</member>
+        <member name="M:cv.linemod.ColorGradient.#ctor">
+\brief Default constructor. Uses reasonable default parameter values.
+
+</member>
+        <member name="T:cv.linemod.ColorGradient">
+\brief Modality that computes quantized gradient orientations from a color image.
+
+</member>
+        <member name="M:cv.linemod.Modality.create(cv.FileNode!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+\brief Load a modality from file.
+
+</member>
+        <member name="M:cv.linemod.Modality.create(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+ \brief Create modality by name.
+
+ The following modality types are supported:
+ - "ColorGradient"
+ - "DepthNormal"
+
+</member>
+        <member name="M:cv.linemod.Modality.process(cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+ \brief Form a quantized image pyramid from a source image.
+
+ \param[in] src  The source image. Type depends on the modality.
+ \param[in] mask Optional mask. If not empty, unmasked pixels are set to zero
+                 in quantized image and cannot be extracted as features.
+
+</member>
+        <member name="T:cv.linemod.Modality">
+ \brief Interface for modalities that plug into the LINE template matching representation.
+
+ \todo Max response, to allow optimization of summing (255/MAX) features as uint8
+
+</member>
+        <member name="M:cv.linemod.QuantizedPyramid.selectScatteredFeatures(std.vector&lt;cv.linemod.QuantizedPyramid.Candidate&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector&lt;cv.linemod.Feature&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.UInt64,System.Single)">
+ \brief Choose candidate features so that they are not bunched together.
+
+ \param[in]  candidates   Candidate features sorted by score.
+ \param[out] features     Destination vector of selected features.
+ \param[in]  num_features Number of candidates to select.
+ \param[in]  distance     Hint for desired distance between features.
+
+</member>
+        <member name="M:cv.linemod.QuantizedPyramid.Candidate.op_LessThan(cv.linemod.QuantizedPyramid.Candidate!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+Sort candidates with high score to the front
+</member>
+        <member name="T:cv.linemod.QuantizedPyramid.Candidate">
+Candidate feature with a score
+</member>
+        <member name="M:cv.linemod.QuantizedPyramid.pyrDown">
+ \brief Go to the next pyramid level.
+
+ \todo Allow pyramid scale factor other than 2
+
+</member>
+        <member name="M:cv.linemod.QuantizedPyramid.extractTemplate(cv.linemod.Template*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+ \brief Extract most discriminant features at current pyramid level to form a new template.
+
+ \param[out] templ The new template.
+
+</member>
+        <member name="M:cv.linemod.QuantizedPyramid.quantize(cv.Mat*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+ \brief Compute quantized image at current pyramid level for online detection.
+
+ \param[out] dst The destination 8-bit image. For each pixel at most one bit is set,
+                 representing its classification.
+
+</member>
+        <member name="T:cv.linemod.QuantizedPyramid">
+\brief Represents a modality operating over an image pyramid.
+
+</member>
+        <member name="T:cv.linemod.Feature">
+@todo Convert doxy comments to rst
+\brief Discriminant feature described by its location and label.
+
+</member>
+        <member name="M:cv.Hamming.op_FunctionCall(System.Byte!System.Runtime.CompilerServices.IsConst*,System.Byte!System.Runtime.CompilerServices.IsConst*,System.Int32)">
+this will count the bits in a ^ b
+
+</member>
+        <member name="M:cv.BriefDescriptorExtractor.info">
+@todo read and write for brief
+</member>
+        <member name="T:cv.StarAdjuster">
+An adjuster for StarFeatureDetector, this one adjusts the responseThreshold for now
+ * TODO find a faster way to converge the parameters for Star - use CvStarDetectorParams
+
+</member>
+        <member name="M:cv.FastAdjuster.#ctor(System.Int32,System.Boolean,System.Int32,System.Int32)">
+\param init_thresh the initial threshold to start with, default = 20
+     * \param nonmax whether to use non max or not for fast feature detection
+
+</member>
+        <member name="T:cv.FastAdjuster">
+\brief an adjust for the FAST detector. This will basically decrement or increment the
+ * threshold by 1
+
+</member>
+        <member name="M:cv.DynamicAdaptedFeatureDetector.#ctor(cv.Ptr&lt;cv.AdjusterAdapter&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Int32,System.Int32,System.Int32)">
+\param adjuster an AdjusterAdapter that will do the detection and parameter adjustment
+     *  \param max_features the maximum desired number of features
+     *  \param max_iters the maximum number of times to try to adjust the feature detector params
+     *          for the FastAdjuster this can be high, but with Star or Surf this can get time consuming
+     *  \param min_features the minimum desired features
+
+</member>
+        <member name="M:cv.AdjusterAdapter.good">
+are params maxed out or still valid?
+     * \return false if the parameters can't be adjusted any more
+
+</member>
+        <member name="M:cv.AdjusterAdapter.tooMany(System.Int32,System.Int32)">
+too many features were detected so, adjust the detector params accordingly
+     * \param max the maximum number of desired features
+     * \param n_detected the number previously detected
+
+</member>
+        <member name="M:cv.AdjusterAdapter.tooFew(System.Int32,System.Int32)">
+too few features were detected so, adjust the detector params accordingly
+     * \param min the minimum number of desired features
+     * \param n_detected the number previously detected
+
+</member>
+        <member name="M:cv.AdjusterAdapter.Dispose">
+pure virtual interface
+
+</member>
+        <member name="T:cv.AdjusterAdapter">
+\brief A feature detector parameter adjuster, this is used by the DynamicAdaptedFeatureDetector
+ *  and is a wrapper for FeatureDetector that allow them to be adjusted after a detection
+
+</member>
+        <member name="M:cv.FREAK.selectPairs(std.vector&lt;cv.Mat&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector&lt;std.vector&lt;cv.KeyPoint&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Double!System.Runtime.CompilerServices.IsConst,System.Boolean)">
+select the 512 "best description pairs"
+         * @param images grayscale images set
+         * @param keypoints set of detected keypoints
+         * @param corrThresh correlation threshold
+         * @param verbose print construction information
+         * @return list of best pair indexes
+
+</member>
+        <member name="M:cv.FREAK.descriptorType">
+returns the descriptor type 
+</member>
+        <member name="M:cv.FREAK.descriptorSize">
+returns the descriptor length in bytes 
+</member>
+        <member name="M:cv.FREAK.#ctor(System.Boolean,System.Boolean,System.Single,System.Int32,std.vector&lt;System.Int32&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+Constructor
+         * @param orientationNormalized enable orientation normalization
+         * @param scaleNormalized enable scale normalization
+         * @param patternScale scaling of the description pattern
+         * @param nbOctave number of octaves covered by the detected keypoints
+         * @param selectedPairs (optional) user defined selected pairs
+
+</member>
+        <member name="M:cv.BackgroundSubtractorGMG.release">
+Releases all inner buffers.
+
+</member>
+        <member name="M:cv.BackgroundSubtractorGMG.op_FunctionCall(cv._InputArray!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv._OutputArray!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Double)">
+Performs single-frame background subtraction and builds up a statistical background image
+model.
+@param image Input image
+@param fgmask Output mask image representing foreground and background pixels
+
+</member>
+        <member name="M:cv.BackgroundSubtractorGMG.initialize(cv.Size_&lt;System.Int32&gt;,System.Double,System.Double)">
+Validate parameters and set up data structures for appropriate image size.
+Must call before running on data.
+@param frameSize input frame size
+@param min       minimum value taken on by pixels in image sequence. Usually 0
+@param max       maximum value taken on by pixels in image sequence. e.g. 1.0 or 255
+
+</member>
+        <member name="T:cv.BackgroundSubtractorGMG">
+Background Subtractor module. Takes a series of images and returns a sequence of mask (8UC1)
+images of the same size, where 255 indicates Foreground and 0 represents Background.
+This class implements an algorithm described in "Visual Tracking of Human Visitors under
+Variable-Lighting Conditions for a Responsive Audio Art Installation," A. Godbehere,
+A. Matsukawa, K. Goldberg, American Control Conference, Montreal, June 2012.
+
+</member>
+        <member name="M:cvSetIdentity(System.Void*,CvScalar)">
+* Finds selected eigen values and vectors of a symmetric matrix */
+</member>
+        <!-- Discarding badly formed XML document comment for member 'M:cv.op_LeftShift(std.basic_ostream<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte}>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.op_LeftShift(std.basic_ostream<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte}>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Formatted!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)'. -->
+        <!-- Discarding badly formed XML document comment for member 'T:cv.DynamicAdaptedFeatureDetector'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.linemod.Detector.match(std.vector<cv.Mat>!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Single,std.vector<cv.linemod.Match>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector<std.basic_string<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte>>>!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv._OutputArray!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector<cv.Mat>!System.Runtime.CompilerServices.IsCon'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.op_LeftShift(std.basic_ostream<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte}>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.op_LeftShift(std.basic_ostream<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte}>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Formatted!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)'. -->
+        <!-- Discarding badly formed XML document comment for member 'T:cv.DynamicAdaptedFeatureDetector'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.linemod.Detector.match(std.vector<cv.Mat>!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Single,std.vector<cv.linemod.Match>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector<std.basic_string<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte>>>!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv._OutputArray!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector<cv.Mat>!System.Runtime.CompilerServices.IsCon'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.op_LeftShift(std.basic_ostream<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte}>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.op_LeftShift(std.basic_ostream<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte}>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Formatted!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)'. -->
+        <!-- Discarding badly formed XML document comment for member 'T:cv.DynamicAdaptedFeatureDetector'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.linemod.Detector.match(std.vector<cv.Mat>!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Single,std.vector<cv.linemod.Match>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector<std.basic_string<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte>>>!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv._OutputArray!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector<cv.Mat>!System.Runtime.CompilerServices.IsCon'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.op_LeftShift(std.basic_ostream<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte}>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.op_LeftShift(std.basic_ostream<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte}>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Formatted!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)'. -->
+        <!-- Discarding badly formed XML document comment for member 'T:cv.DynamicAdaptedFeatureDetector'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.linemod.Detector.match(std.vector<cv.Mat>!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Single,std.vector<cv.linemod.Match>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector<std.basic_string<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte>>>!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv._OutputArray!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector<cv.Mat>!System.Runtime.CompilerServices.IsCon'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:aruco.MarkerDetector.setMakerDetectorFunction(=FUNC:System.Int32(cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Int32*!System.Runtime.CompilerServices.IsImplicitlyDereferenced))'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.op_LeftShift(std.basic_ostream<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte}>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.op_LeftShift(std.basic_ostream<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte}>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Formatted!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)'. -->
+        <!-- Discarding badly formed XML document comment for member 'T:cv.DynamicAdaptedFeatureDetector'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.linemod.Detector.match(std.vector<cv.Mat>!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Single,std.vector<cv.linemod.Match>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector<std.basic_string<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte>>>!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv._OutputArray!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector<cv.Mat>!System.Runtime.CompilerServices.IsCon'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.op_LeftShift(std.basic_ostream<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte}>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.op_LeftShift(std.basic_ostream<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte}>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Formatted!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)'. -->
+        <!-- Discarding badly formed XML document comment for member 'T:cv.DynamicAdaptedFeatureDetector'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.linemod.Detector.match(std.vector<cv.Mat>!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Single,std.vector<cv.linemod.Match>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector<std.basic_string<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte>>>!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv._OutputArray!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector<cv.Mat>!System.Runtime.CompilerServices.IsCon'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:aruco.MarkerDetector.setMakerDetectorFunction(=FUNC:System.Int32(cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Int32*!System.Runtime.CompilerServices.IsImplicitlyDereferenced))'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.op_LeftShift(std.basic_ostream<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte}>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.op_LeftShift(std.basic_ostream<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte}>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Formatted!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)'. -->
+        <!-- Discarding badly formed XML document comment for member 'T:cv.DynamicAdaptedFeatureDetector'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.linemod.Detector.match(std.vector<cv.Mat>!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Single,std.vector<cv.linemod.Match>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector<std.basic_string<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte>>>!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv._OutputArray!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector<cv.Mat>!System.Runtime.CompilerServices.IsCon'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.op_LeftShift(std.basic_ostream<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte}>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Mat!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.op_LeftShift(std.basic_ostream<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte}>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv.Formatted!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)'. -->
+        <!-- Discarding badly formed XML document comment for member 'T:cv.DynamicAdaptedFeatureDetector'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:cv.linemod.Detector.match(std.vector<cv.Mat>!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Single,std.vector<cv.linemod.Match>*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector<std.basic_string<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator<System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte>>>!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,cv._OutputArray!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector<cv.Mat>!System.Runtime.CompilerServices.IsCon'. -->
+    </members>
+</doc>

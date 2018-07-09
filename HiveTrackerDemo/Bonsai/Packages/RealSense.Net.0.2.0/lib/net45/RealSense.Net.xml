@@ -1,0 +1,3191 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RealSense.Net</name>
+    </assembly>
+    <members>
+        <member name="T:RealSense.Net.Device">
+            <summary>
+            Represents a RealSense device session.
+            </summary>
+        </member>
+        <member name="M:RealSense.Net.Device.ApplyDepthControlPreset(RealSense.Net.DepthControlPreset)">
+            <summary>
+            Applies recommended settings for depth control parameters in R200 devices.
+            </summary>
+            <param name="preset">The set of depth control option presets to apply.</param>
+        </member>
+        <member name="M:RealSense.Net.Device.ApplyIVCamPreset(RealSense.Net.IVCamPreset)">
+            <summary>
+            Applies recommended option presets for different types of usage.
+            </summary>
+            <param name="preset">The intended usage of the device.</param>
+        </member>
+        <member name="M:RealSense.Net.Device.GetCameraInfo(RealSense.Net.CameraInfo)">
+            <summary>
+            Gets camera specific information, such as versions of various internal components.
+            </summary>
+            <param name="info">The camera specific information that is to be retrieved.</param>
+            <returns>
+            The requested camera information string, in a format specific to the device model.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Device.GetExtrinsics(RealSense.Net.Stream,RealSense.Net.Stream)">
+            <summary>
+            Gets the extrinsic transformation between the viewpoints of two different streams.
+            </summary>
+            <param name="fromStream">The stream whose coordinate space to transform from.</param>
+            <param name="toStream">The stream whose coordinate space to transform to.</param>
+            <returns>The extrinsic transformation between the two streams.</returns>
+        </member>
+        <member name="M:RealSense.Net.Device.GetExtrinsics(RealSense.Net.Stream,RealSense.Net.Stream,RealSense.Net.Extrinsics@)">
+            <summary>
+            Gets the extrinsic transformation between the viewpoints of two different streams.
+            </summary>
+            <param name="fromStream">The stream whose coordinate space to transform from.</param>
+            <param name="toStream">The stream whose coordinate space to transform to.</param>
+            <param name="extrinsics">
+            The result structure specifying the extrinsic transformation between the two streams.
+            </param>
+        </member>
+        <member name="M:RealSense.Net.Device.GetMotionExtrinsics(RealSense.Net.Stream)">
+            <summary>
+            Gets the extrinsic transformation between a specific stream and the motion module.
+            </summary>
+            <param name="fromStream">The stream whose coordinate space to transform from.</param>
+            <returns>The extrinsic transformation between the specific stream and the motion module.</returns>
+        </member>
+        <member name="M:RealSense.Net.Device.GetMotionExtrinsics(RealSense.Net.Stream,RealSense.Net.Extrinsics@)">
+            <summary>
+            Gets the extrinsic transformation between a specific stream and the motion module.
+            </summary>
+            <param name="fromStream">The stream whose coordinate space to transform from.</param>
+            <param name="extrinsics">
+            The result structure specifying the extrinsic transformation between the
+            specific stream and the motion module.
+            </param>
+        </member>
+        <member name="M:RealSense.Net.Device.SupportsOption(RealSense.Net.Option)">
+            <summary>
+            Gets a value indicating whether the device allows a specific option to be queried and set.
+            </summary>
+            <param name="option">The option to be queried.</param>
+            <returns>
+            <b>true</b> if <paramref name="option"/> can be queried and set; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Device.GetStreamModes(RealSense.Net.Stream)">
+            <summary>
+            Gets the available streaming modes for a specific stream.
+            </summary>
+            <param name="stream">The stream for which to retrieve the available streaming modes.</param>
+            <returns>
+            The collection of streaming modes that are available for the specified stream.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Device.EnableStream(RealSense.Net.Stream,RealSense.Net.Preset)">
+            <summary>
+            Enables a specific stream and requests streaming properties following a preset.
+            </summary>
+            <param name="stream">The stream to enable.</param>
+            <param name="preset">The preset used to enable the stream.</param>
+        </member>
+        <member name="M:RealSense.Net.Device.EnableStream(RealSense.Net.Stream,RealSense.Net.StreamMode)">
+            <summary>
+            Enables a specific stream with the specified streaming properties.
+            </summary>
+            <param name="stream">The stream to enable.</param>
+            <param name="mode">The streaming properties used to enable the stream.</param>
+        </member>
+        <member name="M:RealSense.Net.Device.EnableStream(RealSense.Net.Stream,RealSense.Net.StreamMode,RealSense.Net.OutputBufferFormat)">
+            <summary>
+            Enables a specific stream with the specified streaming properties.
+            </summary>
+            <param name="stream">The stream to enable.</param>
+            <param name="mode">The streaming properties used to enable the stream.</param>
+            <param name="outputFormat">The output buffer format.</param>
+        </member>
+        <member name="M:RealSense.Net.Device.EnableStream(RealSense.Net.Stream,System.Int32,System.Int32,RealSense.Net.PixelFormat,System.Int32)">
+            <summary>
+            Enables a specific stream with the specified streaming properties.
+            </summary>
+            <param name="stream">The stream to enable.</param>
+            <param name="width">Desired width of a frame image in pixels, or 0 if any width is acceptable.</param>
+            <param name="height">Desired height of a frame image in pixels, or 0 if any height is acceptable.</param>
+            <param name="format">Pixel format of a frame image.</param>
+            <param name="framerate">Number of frames that will be streamed per second, or 0 if any frame rate is acceptable.</param>
+        </member>
+        <member name="M:RealSense.Net.Device.EnableStream(RealSense.Net.Stream,System.Int32,System.Int32,RealSense.Net.PixelFormat,System.Int32,RealSense.Net.OutputBufferFormat)">
+            <summary>
+            Enables a specific stream with the specified streaming properties.
+            </summary>
+            <param name="stream">The stream to enable.</param>
+            <param name="width">Desired width of a frame image in pixels, or 0 if any width is acceptable.</param>
+            <param name="height">Desired height of a frame image in pixels, or 0 if any height is acceptable.</param>
+            <param name="format">Pixel format of a frame image.</param>
+            <param name="framerate">Number of frames that will be streamed per second, or 0 if any frame rate is acceptable.</param>
+            <param name="outputFormat">The output buffer format.</param>
+        </member>
+        <member name="M:RealSense.Net.Device.DisableStream(RealSense.Net.Stream)">
+            <summary>
+            Disables a specific stream.
+            </summary>
+            <param name="stream">The stream to disable.</param>
+        </member>
+        <member name="M:RealSense.Net.Device.IsStreamEnabled(RealSense.Net.Stream)">
+            <summary>
+            Determines whether a specific stream is enabled.
+            </summary>
+            <param name="stream">The stream to be queried.</param>
+            <returns>
+            <b>true</b> if the stream is currently enabled; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Device.GetEnabledStreamMode(RealSense.Net.Stream)">
+            <summary>
+            Gets the currently enabled streaming mode for the specified stream.
+            </summary>
+            <param name="stream">The stream for which to retrieve the currently enabled streaming mode.</param>
+            <returns>The currently enabled streaming mode for the specified stream.</returns>
+        </member>
+        <member name="M:RealSense.Net.Device.GetEnabledStreamMode(RealSense.Net.Stream,RealSense.Net.StreamMode@)">
+            <summary>
+            Gets the currently enabled streaming mode for the specified stream.
+            </summary>
+            <param name="stream">The stream for which to retrieve the currently enabled streaming mode.</param>
+            <param name="mode">
+            The result structure specifying the currently enabled streaming mode for the specified stream.
+            </param>
+        </member>
+        <member name="M:RealSense.Net.Device.GetStreamIntrinsics(RealSense.Net.Stream)">
+            <summary>
+            Gets the intrinsic camera parameters for a specific stream.
+            </summary>
+            <param name="stream">The stream for which to retrieve the intrinsic camera parameters.</param>
+            <returns>The intrinsic camera parameters for the specified stream.</returns>
+        </member>
+        <member name="M:RealSense.Net.Device.GetStreamIntrinsics(RealSense.Net.Stream,RealSense.Net.Intrinsics@)">
+            <summary>
+            Gets the intrinsic camera parameters for a specific stream.
+            </summary>
+            <param name="stream">The stream for which to retrieve the intrinsic camera parameters.</param>
+            <param name="intrinsics">
+            The result structure specifying the intrinsic camera parameters for the specified stream.
+            </param>
+        </member>
+        <member name="M:RealSense.Net.Device.GetMotionIntrinsics">
+            <summary>
+            Gets the intrinsic parameters of the motion module.
+            </summary>
+            <returns>The intrinsic parameters of the motion module.</returns>
+        </member>
+        <member name="M:RealSense.Net.Device.GetMotionIntrinsics(RealSense.Net.MotionIntrinsics@)">
+            <summary>
+            Gets the intrinsic parameters of the motion module.
+            </summary>
+            <param name="intrinsics">
+            The result structure specifying the intrinsic parameters of the motion module.
+            </param>
+        </member>
+        <member name="M:RealSense.Net.Device.SetFrameCallback(RealSense.Net.Stream,RealSense.Net.FrameCallback)">
+            <summary>
+            Sets up a frame callback that is called immediately when an image is available,
+            with no synchronization logic applied.
+            </summary>
+            <param name="stream">The stream for which to setup the callback.</param>
+            <param name="onFrame">The function to be called whenever a new image is available.</param>
+        </member>
+        <member name="M:RealSense.Net.Device.EnableMotionTracking(RealSense.Net.MotionCallback,RealSense.Net.TimestampCallback)">
+            <summary>
+            Enables and configures motion-tracking data handlers.
+            </summary>
+            <param name="onMotion">The function to be called whenever new motion data arrives.</param>
+            <param name="onTimestamp">The function to be called whenever new timestamp data arrives.</param>
+        </member>
+        <member name="M:RealSense.Net.Device.DisableMotionTracking">
+            <summary>
+            Disables motion-tracking event handlers.
+            </summary>
+        </member>
+        <member name="M:RealSense.Net.Device.Start">
+            <summary>
+            Begins streaming on all enabled streams for this device.
+            </summary>
+        </member>
+        <member name="M:RealSense.Net.Device.Start(RealSense.Net.Source)">
+            <summary>
+            Begins streaming on all enabled streams for this device.
+            </summary>
+            <param name="source">The data source to be activated.</param>
+        </member>
+        <member name="M:RealSense.Net.Device.Stop">
+            <summary>
+            Ends data acquisition for all source providers.
+            </summary>
+        </member>
+        <member name="M:RealSense.Net.Device.Stop(RealSense.Net.Source)">
+            <summary>
+            Ends data acquisition for the specified source providers.
+            </summary>
+            <param name="source">The data source to be terminated.</param>
+        </member>
+        <member name="M:RealSense.Net.Device.GetOptionRange(RealSense.Net.Option,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            Retrieves the available range of values for a supported option.
+            </summary>
+            <param name="option">The option for which to retrieve the value range.</param>
+            <param name="min">The minimum value that is acceptable for this option.</param>
+            <param name="max">The maximum value that is acceptable for this option.</param>
+            <param name="step">
+            The granularity of options that accept discrete values,
+            or zero if the option accepts continuous values.
+            </param>
+        </member>
+        <member name="M:RealSense.Net.Device.GetOptionRange(RealSense.Net.Option,System.Double@,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            Retrieves the available range of values for a supported option.
+            </summary>
+            <param name="option">The option for which to retrieve the value range.</param>
+            <param name="min">The minimum value that is acceptable for this option.</param>
+            <param name="max">The maximum value that is acceptable for this option.</param>
+            <param name="step">
+            The granularity of options that accept discrete values,
+            or zero if the option accepts continuous values.
+            </param>
+            <param name="defaultValue">The default value for the option.</param>
+        </member>
+        <member name="M:RealSense.Net.Device.GetOption(RealSense.Net.Option)">
+            <summary>
+            Gets the current value of a single option.
+            </summary>
+            <param name="option">The option for which to retrieve the value.</param>
+            <returns>The current value of the specified option.</returns>
+        </member>
+        <member name="M:RealSense.Net.Device.GetOption(RealSense.Net.Option[])">
+            <summary>
+            Efficiently retrieves the value of an arbitrary number of options, using minimal hardware IO.
+            </summary>
+            <param name="options">The array of options to be queried.</param>
+            <returns>The set of values for the queried options.</returns>
+        </member>
+        <member name="M:RealSense.Net.Device.SetOption(RealSense.Net.Option,System.Double)">
+            <summary>
+            Sets the current value of a single option.
+            </summary>
+            <param name="option">The option whose value should be set.</param>
+            <param name="value">The value of the option.</param>
+        </member>
+        <member name="M:RealSense.Net.Device.SetOption(RealSense.Net.Option[],System.Double[])">
+            <summary>
+            Efficiently sets the value of an arbitrary number of options, using minimal hardware IO.
+            </summary>
+            <param name="options">The array of options that should be set.</param>
+            <param name="values">The array of values to which the options should be set.</param>
+        </member>
+        <member name="M:RealSense.Net.Device.ResetOption(RealSense.Net.Option[])">
+            <summary>
+            Efficiently resets the value of an arbitrary number of options.
+            </summary>
+            <param name="options">The array of options that should be set to their default values.</param>
+        </member>
+        <member name="M:RealSense.Net.Device.GetOptionDescription(RealSense.Net.Option)">
+            <summary>
+            Gets a static description of what a particular option does on the current device.
+            </summary>
+            <param name="option">The option for which to retrieve the description.</param>
+            <returns>The description of what the option does on the current device.</returns>
+        </member>
+        <member name="M:RealSense.Net.Device.WaitForFrames">
+            <summary>
+            Blocks until new frames are available.
+            </summary>
+        </member>
+        <member name="M:RealSense.Net.Device.PollForFrames">
+            <summary>
+            Checks whether new frames are available, without blocking.
+            </summary>
+            <returns>
+            <b>true</b> if new frames are available; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Device.Supports(RealSense.Net.Capabilities)">
+            <summary>
+            Gets a value indicating whether the device supports the specified capability.
+            </summary>
+            <param name="capability">The capability to test.</param>
+            <returns>
+            <b>true</b> if the device supports the specified capability; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Device.SupportsCameraInfo(RealSense.Net.CameraInfo)">
+            <summary>
+            Gets a value indicating whether a given camera information parameter is supported by the device.
+            </summary>
+            <param name="info">The information parameter to test.</param>
+            <returns>
+            <b>true</b> if the parameter both exists and is well-defined for the specific device;
+            otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Device.GetFrameTimestamp(RealSense.Net.Stream)">
+            <summary>
+            Gets the time at which the latest frame on the specified stream was captured.
+            </summary>
+            <param name="stream">The stream for which to retrieve the latest frame timestamp.</param>
+            <returns>The timestamp of the latest frame, in milliseconds since the device was started.</returns>
+        </member>
+        <member name="M:RealSense.Net.Device.GetFrameNumber(RealSense.Net.Stream)">
+            <summary>
+            Gets the number of the latest frame to be captured on the specified stream.
+            </summary>
+            <param name="stream">The stream for which to retrieve the latest frame number.</param>
+            <returns>The number of the latest frame captured on the specified stream.</returns>
+        </member>
+        <member name="M:RealSense.Net.Device.GetFrameData(RealSense.Net.Stream)">
+            <summary>
+            Gets a pointer to the contents of the latest frame to be captured on the specified stream.
+            </summary>
+            <param name="stream">The stream for which to retrieve the latest frame contents.</param>
+            <returns>A pointer to the contents of the latest frame captured on the specified stream.</returns>
+        </member>
+        <member name="P:RealSense.Net.Device.Name">
+            <summary>
+            Gets the human-readable device model.
+            </summary>
+        </member>
+        <member name="P:RealSense.Net.Device.Serial">
+            <summary>
+            Gets the unique serial number of the device, in a format specific to the device model.
+            </summary>
+        </member>
+        <member name="P:RealSense.Net.Device.UsbPortId">
+            <summary>
+            Gets the USB port number of the device.
+            </summary>
+        </member>
+        <member name="P:RealSense.Net.Device.FirmwareVersion">
+            <summary>
+            Gets the version of the firmware currently installed on the device.
+            </summary>
+        </member>
+        <member name="P:RealSense.Net.Device.DepthScale">
+            <summary>
+            Gets the scale mapping between the units of the depth image and meters.
+            </summary>
+        </member>
+        <member name="P:RealSense.Net.Device.Streaming">
+            <summary>
+            Gets a value indicating whether the device is currently streaming.
+            </summary>
+        </member>
+        <member name="P:RealSense.Net.Device.MotionTrackingActive">
+            <summary>
+            Gets a value indicating whether motion tracking is active.
+            </summary>
+        </member>
+        <member name="T:RealSense.Net.Frame">
+            <summary>
+            Represents an image frame captured from a RealSense device stream.
+            </summary>
+        </member>
+        <member name="M:RealSense.Net.Frame.GetMetadata(RealSense.Net.FrameMetadata)">
+            <summary>
+            Gets the specified metadata from the captured frame.
+            </summary>
+            <param name="metadata">The metadata to retrieve from the captured frame.</param>
+            <returns>The metadata value.</returns>
+        </member>
+        <member name="M:RealSense.Net.Frame.SupportsMetadata(RealSense.Net.FrameMetadata)">
+            <summary>
+            Gets a value indicating whether the captured frame contains the specified metadata.
+            </summary>
+            <param name="metadata">The metadata to be queried.</param>
+            <returns>
+            <b>true</b> if the captured frame contains the specified metadata; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="P:RealSense.Net.Frame.Timestamp">
+            <summary>
+            Gets the timestamp of the captured frame, in milliseconds since the device started.
+            </summary>
+        </member>
+        <member name="P:RealSense.Net.Frame.TimestampDomain">
+            <summary>
+            Gets the timestamp domain for the captured frame.
+            </summary>
+        </member>
+        <member name="P:RealSense.Net.Frame.FrameNumber">
+            <summary>
+            Gets the frame number of the captured frame.
+            </summary>
+        </member>
+        <member name="P:RealSense.Net.Frame.FrameData">
+            <summary>
+            Gets a pointer to the contents of the captured frame.
+            </summary>
+        </member>
+        <member name="P:RealSense.Net.Frame.Width">
+            <summary>
+            Gets the width of the captured frame, in pixels.
+            </summary>
+        </member>
+        <member name="P:RealSense.Net.Frame.Height">
+            <summary>
+            Gets the height of the captured frame, in pixels.
+            </summary>
+        </member>
+        <member name="P:RealSense.Net.Frame.Framerate">
+            <summary>
+            Gets the framerate of the device stream which acquired the frame.
+            </summary>
+        </member>
+        <member name="P:RealSense.Net.Frame.Stride">
+            <summary>
+            Gets the total line width, in bytes, of the captured frame.
+            </summary>
+        </member>
+        <member name="P:RealSense.Net.Frame.BitsPerPixel">
+            <summary>
+            Gets the bits per pixel used by the captured frame format.
+            </summary>
+        </member>
+        <member name="P:RealSense.Net.Frame.Format">
+            <summary>
+            Gets the pixel format of the captured frame.
+            </summary>
+        </member>
+        <member name="P:RealSense.Net.Frame.StreamType">
+            <summary>
+            Gets the type of the device stream which acquired the frame.
+            </summary>
+        </member>
+        <member name="T:RealSense.Net.Intrinsics">
+            <summary>
+            Represents video stream intrinsics.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Intrinsics.Width">
+            <summary>
+            Width of the image in pixels.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Intrinsics.Height">
+            <summary>
+            Height of the image in pixels.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Intrinsics.Ppx">
+            <summary>
+            Horizontal coordinate of the principal point of the image, as a pixel offset from the left edge.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Intrinsics.Ppy">
+            <summary>
+            Vertical coordinate of the principal point of the image, as a pixel offset from the top edge.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Intrinsics.Fx">
+            <summary>
+            Focal length of the image plane, as a multiple of pixel width.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Intrinsics.Fy">
+            <summary>
+            Focal length of the image plane, as a multiple of pixel height.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Intrinsics.Model">
+            <summary>
+            Distortion model of the image.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Intrinsics.Coeff0">
+            <summary>
+            Distortion coefficients.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Intrinsics.Coeff1">
+            <summary>
+            Distortion coefficients.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Intrinsics.Coeff2">
+            <summary>
+            Distortion coefficients.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Intrinsics.Coeff3">
+            <summary>
+            Distortion coefficients.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Intrinsics.Coeff4">
+            <summary>
+            Distortion coefficients.
+            </summary>
+        </member>
+        <member name="M:RealSense.Net.Intrinsics.Equals(RealSense.Net.Intrinsics)">
+            <summary>
+            Returns a value indicating whether this instance is equal to a specified
+            <see cref="T:RealSense.Net.Intrinsics"/> value.
+            </summary>
+            <param name="other">An <see cref="T:RealSense.Net.Intrinsics"/> value to compare to this instance.</param>
+            <returns>
+            <b>true</b> if <paramref name="other"/> has the same element values as
+            this instance; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Intrinsics.Equals(System.Object)">
+            <summary>
+            Returns a value indicating whether this instance is equal to a specified object.
+            </summary>
+            <param name="obj">An object to compare with this instance.</param>
+            <returns>
+            <b>true</b> if <paramref name="obj"/> is an instance of <see cref="T:RealSense.Net.Intrinsics"/> and
+            has the same element values as this instance; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Intrinsics.GetHashCode">
+            <summary>
+            Returns the hash code for this instance.
+            </summary>
+            <returns>A 32-bit signed integer hash code.</returns>
+        </member>
+        <member name="M:RealSense.Net.Intrinsics.ToString">
+            <summary>
+            Converts the numeric value of this instance to its equivalent string representation.
+            </summary>
+            <returns>
+            The string representation of all the elements in the video stream intrinsics.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Intrinsics.op_Equality(RealSense.Net.Intrinsics,RealSense.Net.Intrinsics)">
+            <summary>
+            Tests whether two <see cref="T:RealSense.Net.Intrinsics"/> structures are equal.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Intrinsics"/> structure on the left of the equality operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Intrinsics"/> structure on the right of the equality operator.
+            </param>
+            <returns>
+            <b>true</b> if <paramref name="left"/> and <paramref name="right"/> have
+            all their elements equal; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Intrinsics.op_Inequality(RealSense.Net.Intrinsics,RealSense.Net.Intrinsics)">
+            <summary>
+            Tests whether two <see cref="T:RealSense.Net.Intrinsics"/> structures are different.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Intrinsics"/> structure on the left of the inequality operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Intrinsics"/> structure on the right of the inequality operator.
+            </param>
+            <returns>
+            <b>true</b> if <paramref name="left"/> and <paramref name="right"/> differ
+            in any of their elements; <b>false</b> if <paramref name="left"/> and
+            <paramref name="right"/> are equal.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Intrinsics.ProjectPoint(RealSense.Net.Vector3,RealSense.Net.Intrinsics)">
+            <summary>
+            Computes the corresponding pixel coordinates of a point in 3D space, assuming an image with no distortion or
+            with forward distortion coefficients produced by the same camera.
+            </summary>
+            <param name="point">The 3D point to project into image space.</param>
+            <param name="intrinsics">The intrinsic parameters of the camera.</param>
+            <returns>The projected 2D point.</returns>
+        </member>
+        <member name="M:RealSense.Net.Intrinsics.ProjectPoint(RealSense.Net.Vector3@,RealSense.Net.Intrinsics@,RealSense.Net.Vector2@)">
+            <summary>
+            Computes the corresponding pixel coordinates of a point in 3D space, assuming an image with no distortion or
+            with forward distortion coefficients produced by the same camera.
+            </summary>
+            <param name="point">The 3D point to project into image space.</param>
+            <param name="intrinsics">The intrinsic parameters of the camera.</param>
+            <param name="result">The projected 2D point.</param>
+        </member>
+        <member name="M:RealSense.Net.Intrinsics.DeprojectPoint(RealSense.Net.Vector2,RealSense.Net.Intrinsics,System.Single)">
+            <summary>
+            Computes the corresponding 3D coordinates of an image pixel with known depth, assuming an image with no distortion or
+            with inverse distortion coefficients produced by the same camera.
+            </summary>
+            <param name="pixel">The 2D point to project into 3D space.</param>
+            <param name="intrinsics">The intrinsic parameters of the camera.</param>
+            <param name="depth">The depth of the image pixel.</param>
+            <returns>The 3D coordinates of the 2D point relative to the camera.</returns>
+        </member>
+        <member name="M:RealSense.Net.Intrinsics.DeprojectPoint(RealSense.Net.Vector2@,RealSense.Net.Intrinsics@,System.Single,RealSense.Net.Vector3@)">
+            <summary>
+            Computes the corresponding 3D coordinates of an image pixel with known depth, assuming an image with no distortion or
+            with inverse distortion coefficients produced by the same camera.
+            </summary>
+            <param name="pixel">The 2D point to project into 3D space.</param>
+            <param name="intrinsics">The intrinsic parameters of the camera.</param>
+            <param name="depth">The depth of the image pixel.</param>
+            <param name="result">The 3D coordinates of the 2D point relative to the camera.</param>
+        </member>
+        <member name="T:RealSense.Net.Context">
+            <summary>
+            Represents a RealSense device context session.
+            </summary>
+        </member>
+        <member name="M:RealSense.Net.Context.Create">
+            <summary>
+            Initializes a new RealSense device context session.
+            </summary>
+            <returns>The new device context instance.</returns>
+        </member>
+        <member name="M:RealSense.Net.Context.GetApiVersion">
+            <summary>
+            Gets the API version of the compiled library DLL.
+            </summary>
+            <returns>The API version encoded as an integer value.</returns>
+        </member>
+        <member name="M:RealSense.Net.Context.LogToConsole(RealSense.Net.LogSeverity)">
+            <summary>
+            Starts logging API notifications to the standard output.
+            </summary>
+            <param name="minSeverity">The minimum severity of the messages to be logged.</param>
+        </member>
+        <member name="M:RealSense.Net.Context.LogToFile(RealSense.Net.LogSeverity,System.String)">
+            <summary>
+            Starts logging API notifications to a file.
+            </summary>
+            <param name="minSeverity">The minimum severity of the messages to be logged.</param>
+            <param name="filePath">The path of the file to log to.</param>
+        </member>
+        <member name="M:RealSense.Net.Context.LogToCallback(RealSense.Net.LogSeverity,RealSense.Net.LogCallback)">
+            <summary>
+            Starts logging API notifications through a custom user callback.
+            </summary>
+            <param name="minSeverity">The minimum severity of the messages to be logged.</param>
+            <param name="onLog">The function that should be invoked whenever a new message needs to be logged.</param>
+        </member>
+        <member name="M:RealSense.Net.Context.Dispose">
+            <summary>
+            Releases all resources held by the device context instance.
+            </summary>
+        </member>
+        <member name="P:RealSense.Net.Context.Devices">
+            <summary>
+            Gets the collection of connected RealSense devices.
+            </summary>
+        </member>
+        <member name="T:RealSense.Net.DeviceCollection">
+            <summary>
+            Represents a collection of RealSense device sessions.
+            </summary>
+        </member>
+        <member name="M:RealSense.Net.DeviceCollection.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="P:RealSense.Net.DeviceCollection.Item(System.Int32)">
+            <summary>
+            Gets the device at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the device to get.</param>
+            <returns>The device at the specified index.</returns>
+        </member>
+        <member name="P:RealSense.Net.DeviceCollection.Count">
+            <summary>
+            Gets the number of devices in the collection.
+            </summary>
+        </member>
+        <member name="T:RealSense.Net.Extrinsics">
+            <summary>
+            Represents cross-stream extrinsics encoding the topology describing how
+            the different devices are connected.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Extrinsics.Rotation">
+            <summary>
+            Specifies the column-major 3x3 rotation matrix.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Extrinsics.Translation">
+            <summary>
+            Specifies the three-element translation vector, in meters.
+            </summary>
+        </member>
+        <member name="M:RealSense.Net.Extrinsics.Equals(RealSense.Net.Extrinsics)">
+            <summary>
+            Returns a value indicating whether this instance is equal to a specified
+            <see cref="T:RealSense.Net.Extrinsics"/> value.
+            </summary>
+            <param name="other">A <see cref="T:RealSense.Net.Extrinsics"/> value to compare to this instance.</param>
+            <returns>
+            <b>true</b> if <paramref name="other"/> has the same element values as
+            this instance; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Extrinsics.Equals(System.Object)">
+            <summary>
+            Returns a value indicating whether this instance is equal to a specified object.
+            </summary>
+            <param name="obj">An object to compare with this instance.</param>
+            <returns>
+            <b>true</b> if <paramref name="obj"/> is an instance of <see cref="T:RealSense.Net.Extrinsics"/> and
+            has the same element values as this instance; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Extrinsics.GetHashCode">
+            <summary>
+            Returns the hash code for this instance.
+            </summary>
+            <returns>A 32-bit signed integer hash code.</returns>
+        </member>
+        <member name="M:RealSense.Net.Extrinsics.ToString">
+            <summary>
+            Converts the numeric value of this instance to its equivalent string representation.
+            </summary>
+            <returns>
+            The string representation of all the elements in the cross-stream extrinsics.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Extrinsics.op_Equality(RealSense.Net.Extrinsics,RealSense.Net.Extrinsics)">
+            <summary>
+            Tests whether two <see cref="T:RealSense.Net.Extrinsics"/> structures are equal.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Extrinsics"/> structure on the left of the equality operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Extrinsics"/> structure on the right of the equality operator.
+            </param>
+            <returns>
+            <b>true</b> if <paramref name="left"/> and <paramref name="right"/> have
+            all their elements equal; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Extrinsics.op_Inequality(RealSense.Net.Extrinsics,RealSense.Net.Extrinsics)">
+            <summary>
+            Tests whether two <see cref="T:RealSense.Net.Extrinsics"/> structures are different.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Extrinsics"/> structure on the left of the inequality operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Extrinsics"/> structure on the right of the inequality operator.
+            </param>
+            <returns>
+            <b>true</b> if <paramref name="left"/> and <paramref name="right"/> differ
+            in any of their elements; <b>false</b> if <paramref name="left"/> and
+            <paramref name="right"/> are equal.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Extrinsics.TransformPoint(RealSense.Net.Vector3,RealSense.Net.Extrinsics)">
+            <summary>
+            Transforms 3D coordinates relative to one sensor into 3D coordinates relative to another viewpoint.
+            </summary>
+            <param name="point">The point to transform from.</param>
+            <param name="extrinsics">The extrinsic parameters defining the viewpoint transformation.</param>
+            <returns>The point coordinates in the new viewpoint coordinate frame.</returns>
+        </member>
+        <member name="M:RealSense.Net.Extrinsics.TransformPoint(RealSense.Net.Vector3@,RealSense.Net.Extrinsics@,RealSense.Net.Vector3@)">
+            <summary>
+            Transforms 3D coordinates relative to one sensor into 3D coordinates relative to another viewpoint.
+            </summary>
+            <param name="point">The point to transform from.</param>
+            <param name="extrinsics">The extrinsic parameters defining the viewpoint transformation.</param>
+            <param name="result">The resulting point coordinates in the new viewpoint coordinate frame.</param>
+        </member>
+        <member name="T:RealSense.Net.Matrix3">
+            <summary>
+            Represents a 3x3 matrix in column-major order.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Matrix3.Identity">
+            <summary>
+            Represents the identity matrix.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Matrix3.Column1">
+            <summary>
+            Specifies the first column of the matrix.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Matrix3.Column2">
+            <summary>
+            Specifies the second column of the matrix.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Matrix3.Column3">
+            <summary>
+            Specifies the third column of the matrix.
+            </summary>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RealSense.Net.Matrix3"/> structure
+            with the specified element values.
+            </summary>
+            <param name="m11">The value at the first row and first column of the matrix.</param>
+            <param name="m12">The value at the first row and second column of the matrix.</param>
+            <param name="m13">The value at the first row and third column of the matrix.</param>
+            <param name="m21">The value at the second row and first column of the matrix.</param>
+            <param name="m22">The value at the second row and second column of the matrix.</param>
+            <param name="m23">The value at the second row and third column of the matrix.</param>
+            <param name="m31">The value at the third row and first column of the matrix.</param>
+            <param name="m32">The value at the third row and second column of the matrix.</param>
+            <param name="m33">The value at the third row and third column of the matrix.</param>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.Equals(RealSense.Net.Matrix3)">
+            <summary>
+            Returns a value indicating whether this instance is equal to a specified
+            <see cref="T:RealSense.Net.Matrix3"/> value.
+            </summary>
+            <param name="other">A <see cref="T:RealSense.Net.Matrix3"/> value to compare to this instance.</param>
+            <returns>
+            <b>true</b> if <paramref name="other"/> has the same element values as
+            this instance; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.Equals(System.Object)">
+            <summary>
+            Returns a value indicating whether this instance is equal to a specified object.
+            </summary>
+            <param name="obj">An object to compare with this instance.</param>
+            <returns>
+            <b>true</b> if <paramref name="obj"/> is an instance of <see cref="T:RealSense.Net.Matrix3"/> and
+            has the same element values as this instance; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.GetHashCode">
+            <summary>
+            Returns the hash code for this instance.
+            </summary>
+            <returns>A 32-bit signed integer hash code.</returns>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.ToString">
+            <summary>
+            Converts the numeric value of this instance to its equivalent string representation.
+            </summary>
+            <returns>
+            The string representation of all the elements in the matrix.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.Negate(RealSense.Net.Matrix3)">
+            <summary>
+            Negates all the elements in the source matrix and returns the result
+            as a new <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="value">The source matrix.</param>
+            <returns>The result of negating all the elements in the source matrix.</returns>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.Negate(RealSense.Net.Matrix3@,RealSense.Net.Matrix3@)">
+            <summary>
+            Negates all the elements in the source matrix and returns the result
+            as a new <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="value">The source matrix.</param>
+            <param name="result">The result of negating all the elements in the source matrix.</param>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.Add(RealSense.Net.Matrix3,RealSense.Net.Matrix3)">
+            <summary>
+            Adds a matrix to another matrix and returns the result as
+            a new <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="value1">The first matrix to add.</param>
+            <param name="value2">The second matrix to add.</param>
+            <returns>The sum of the two matrices.</returns>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.Add(RealSense.Net.Matrix3@,RealSense.Net.Matrix3@,RealSense.Net.Matrix3@)">
+            <summary>
+            Adds a matrix to another matrix and returns the result as
+            a new <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="value1">The first matrix to add.</param>
+            <param name="value2">The second matrix to add.</param>
+            <param name="result">The sum of the two matrices.</param>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.Subtract(RealSense.Net.Matrix3,RealSense.Net.Matrix3)">
+            <summary>
+            Subtracts a matrix from another matrix and returns the result as a new
+            <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="value1">The matrix from which the other matrix will be subtracted.</param>
+            <param name="value2">The matrix that is to be subtracted.</param>
+            <returns>The result of the subtraction.</returns>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.Subtract(RealSense.Net.Matrix3@,RealSense.Net.Matrix3@,RealSense.Net.Matrix3@)">
+            <summary>
+            Subtracts a matrix from another matrix and returns the result as a new
+            <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="value1">The matrix from which the other matrix will be subtracted.</param>
+            <param name="value2">The matrix that is to be subtracted.</param>
+            <param name="result">The result of the subtraction.</param>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.Multiply(RealSense.Net.Matrix3,System.Single)">
+            <summary>
+            Multiplies a matrix by a scalar value and returns the result as
+            a new <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="value1">The source matrix.</param>
+            <param name="value2">The scalar value.</param>
+            <returns>The result of the multiplication.</returns>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.Multiply(RealSense.Net.Matrix3@,System.Single,RealSense.Net.Matrix3@)">
+            <summary>
+            Multiplies a matrix by a scalar value and returns the result as
+            a new <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="value1">The source matrix.</param>
+            <param name="value2">The scalar value.</param>
+            <param name="result">The result of the multiplication.</param>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.Multiply(RealSense.Net.Matrix3,RealSense.Net.Matrix3)">
+            <summary>
+            Multiplies a matrix by another matrix and returns the result as
+            a new <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="value1">The first matrix to multiply.</param>
+            <param name="value2">The second matrix to multiply.</param>
+            <returns>The result of the multiplication.</returns>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.Multiply(RealSense.Net.Matrix3@,RealSense.Net.Matrix3@,RealSense.Net.Matrix3@)">
+            <summary>
+            Multiplies a matrix by another matrix and returns the result as
+            a new <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="value1">The first matrix to multiply.</param>
+            <param name="value2">The second matrix to multiply.</param>
+            <param name="result">The result of the multiplication.</param>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.Divide(RealSense.Net.Matrix3,System.Single)">
+            <summary>
+            Divides a matrix by a scalar value and returns the result as
+            a new <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="value1">The source matrix.</param>
+            <param name="value2">The scalar value.</param>
+            <returns>The result of the division.</returns>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.Divide(RealSense.Net.Matrix3@,System.Single,RealSense.Net.Matrix3@)">
+            <summary>
+            Divides a matrix by a scalar value and returns the result as
+            a new <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="value1">The source matrix.</param>
+            <param name="value2">The scalar value.</param>
+            <param name="result">The result of the division.</param>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.Divide(RealSense.Net.Matrix3,RealSense.Net.Matrix3)">
+            <summary>
+            Divides the components of a matrix by the components of another matrix
+            and returns the result as a new <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="value1">The matrix whose components will be divided.</param>
+            <param name="value2">The divisor matrix.</param>
+            <returns>The result of the division.</returns>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.Divide(RealSense.Net.Matrix3@,RealSense.Net.Matrix3@,RealSense.Net.Matrix3@)">
+            <summary>
+            Divides the components of a matrix by the components of another matrix
+            and returns the result as a new <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="value1">The matrix whose components will be divided.</param>
+            <param name="value2">The divisor matrix.</param>
+            <param name="result">The result of the division.</param>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.op_Equality(RealSense.Net.Matrix3,RealSense.Net.Matrix3)">
+            <summary>
+            Tests whether two <see cref="T:RealSense.Net.Matrix3"/> structures are equal.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Matrix3"/> structure on the left of the equality operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Matrix3"/> structure on the right of the equality operator.
+            </param>
+            <returns>
+            <b>true</b> if <paramref name="left"/> and <paramref name="right"/> have
+            all their elements equal; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.op_Inequality(RealSense.Net.Matrix3,RealSense.Net.Matrix3)">
+            <summary>
+            Tests whether two <see cref="T:RealSense.Net.Matrix3"/> structures are different.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Matrix3"/> structure on the left of the inequality operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Matrix3"/> structure on the right of the inequality operator.
+            </param>
+            <returns>
+            <b>true</b> if <paramref name="left"/> and <paramref name="right"/> differ
+            in any of their elements; <b>false</b> if <paramref name="left"/> and
+            <paramref name="right"/> are equal.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.op_UnaryNegation(RealSense.Net.Matrix3)">
+            <summary>
+            Negates all the elements in the source matrix and returns the result
+            as a new <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="value">The source matrix.</param>
+            <returns>The result of negating all the elements in the source matrix.</returns>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.op_Addition(RealSense.Net.Matrix3,RealSense.Net.Matrix3)">
+            <summary>
+            Adds a matrix to another matrix and returns the result as
+            a new <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Matrix3"/> structure on the left of the addition operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Matrix3"/> structure on the right of the addition operator.
+            </param>
+            <returns>The sum of the two matrices.</returns>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.op_Subtraction(RealSense.Net.Matrix3,RealSense.Net.Matrix3)">
+            <summary>
+            Subtracts a matrix from another matrix and returns the result as a new
+            <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Matrix3"/> structure on the left of the subtraction operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Matrix3"/> structure on the right of the subtraction operator.
+            </param>
+            <returns>The result of the subtraction.</returns>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.op_Multiply(System.Single,RealSense.Net.Matrix3)">
+            <summary>
+            Multiplies a matrix by a scalar value and returns the result as
+            a new <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="left">
+            The scalar value on the left of the multiplication operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Matrix3"/> structure on the right of the multiplication operator.
+            </param>
+            <returns>The result of the multiplication.</returns>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.op_Multiply(RealSense.Net.Matrix3,System.Single)">
+            <summary>
+            Multiplies a matrix by a scalar value and returns the result as
+            a new <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Matrix3"/> structure on the left of the multiplication operator.
+            </param>
+            <param name="right">
+            The scalar value on the right of the multiplication operator.
+            </param>
+            <returns>The result of the multiplication.</returns>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.op_Multiply(RealSense.Net.Matrix3,RealSense.Net.Matrix3)">
+            <summary>
+            Multiplies a matrix by another matrix and returns the result as
+            a new <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Matrix3"/> structure on the left of the multiplication operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Matrix3"/> structure on the right of the multiplication operator.
+            </param>
+            <returns>The result of the multiplication.</returns>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.op_Division(RealSense.Net.Matrix3,System.Single)">
+            <summary>
+            Divides a matrix by a scalar value and returns the result as
+            a new <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Matrix3"/> structure on the left of the division operator.
+            </param>
+            <param name="right">
+            The scalar value on the right of the division operator.
+            </param>
+            <returns>The result of the division.</returns>
+        </member>
+        <member name="M:RealSense.Net.Matrix3.op_Division(RealSense.Net.Matrix3,RealSense.Net.Matrix3)">
+            <summary>
+            Divides the components of a matrix by the components of another matrix
+            and returns the result as a new <see cref="T:RealSense.Net.Matrix3"/>.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Matrix3"/> structure on the left of the division operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Matrix3"/> structure on the right of the division operator.
+            </param>
+            <returns>The result of the division.</returns>
+        </member>
+        <member name="T:RealSense.Net.MotionData">
+            <summary>
+            Represents motion data from the gyroscope and accelerometer in the microcontroller.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.MotionData.TimestampData">
+            <summary>
+            The timestamp data associated with the motion data frame.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.MotionData.IsValid">
+            <summary>
+            A flag signalled by the microcontroller in case of an error.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.MotionData.Axes">
+            <summary>
+            The three axial values; 16-bit data for gyroscope (in rad/sec),
+            12-bit for accelerometer; 2's complement (in m/sec^2).
+            </summary>
+        </member>
+        <member name="M:RealSense.Net.MotionData.ToString">
+            <summary>
+            Converts the numeric value of this instance to its equivalent string representation.
+            </summary>
+            <returns>
+            The string representation of all the elements in the motion data.
+            </returns>
+        </member>
+        <member name="T:RealSense.Net.MotionDeviceIntrinsics">
+            <summary>
+            Represents the intrinsic parameters of a motion device.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.MotionDeviceIntrinsics.Scale">
+            <summary>
+            The scale matrix for the X, Y, and Z axis.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.MotionDeviceIntrinsics.Bias">
+            <summary>
+            The bias for the X, Y, and Z axis.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.MotionDeviceIntrinsics.NoiseVariances">
+            <summary>
+            The variance of the noise for the X, Y, and Z axis.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.MotionDeviceIntrinsics.BiasVariances">
+            <summary>
+            The variance of the bias for the X, Y, and Z axis.
+            </summary>
+        </member>
+        <member name="M:RealSense.Net.MotionDeviceIntrinsics.Equals(RealSense.Net.MotionDeviceIntrinsics)">
+            <summary>
+            Returns a value indicating whether this instance is equal to a specified
+            <see cref="T:RealSense.Net.MotionDeviceIntrinsics"/> value.
+            </summary>
+            <param name="other">A <see cref="T:RealSense.Net.MotionDeviceIntrinsics"/> value to compare to this instance.</param>
+            <returns>
+            <b>true</b> if <paramref name="other"/> has the same element values as
+            this instance; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.MotionDeviceIntrinsics.Equals(System.Object)">
+            <summary>
+            Returns a value indicating whether this instance is equal to a specified object.
+            </summary>
+            <param name="obj">An object to compare with this instance.</param>
+            <returns>
+            <b>true</b> if <paramref name="obj"/> is an instance of <see cref="T:RealSense.Net.MotionDeviceIntrinsics"/> and
+            has the same element values as this instance; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.MotionDeviceIntrinsics.GetHashCode">
+            <summary>
+            Returns the hash code for this instance.
+            </summary>
+            <returns>A 32-bit signed integer hash code.</returns>
+        </member>
+        <member name="M:RealSense.Net.MotionDeviceIntrinsics.ToString">
+            <summary>
+            Converts the numeric value of this instance to its equivalent string representation.
+            </summary>
+            <returns>
+            The string representation of all the elements in the motion device intrinsics.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.MotionDeviceIntrinsics.op_Equality(RealSense.Net.MotionDeviceIntrinsics,RealSense.Net.MotionDeviceIntrinsics)">
+            <summary>
+            Tests whether two <see cref="T:RealSense.Net.MotionDeviceIntrinsics"/> structures are equal.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.MotionDeviceIntrinsics"/> structure on the left of the equality operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.MotionDeviceIntrinsics"/> structure on the right of the equality operator.
+            </param>
+            <returns>
+            <b>true</b> if <paramref name="left"/> and <paramref name="right"/> have
+            all their elements equal; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.MotionDeviceIntrinsics.op_Inequality(RealSense.Net.MotionDeviceIntrinsics,RealSense.Net.MotionDeviceIntrinsics)">
+            <summary>
+            Tests whether two <see cref="T:RealSense.Net.MotionDeviceIntrinsics"/> structures are different.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.MotionDeviceIntrinsics"/> structure on the left of the inequality operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.MotionDeviceIntrinsics"/> structure on the right of the inequality operator.
+            </param>
+            <returns>
+            <b>true</b> if <paramref name="left"/> and <paramref name="right"/> differ
+            in any of their elements; <b>false</b> if <paramref name="left"/> and
+            <paramref name="right"/> are equal.
+            </returns>
+        </member>
+        <member name="T:RealSense.Net.MotionIntrinsics">
+            <summary>
+            Represents the intrinsic parameters of a motion module.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.MotionIntrinsics.Accelerometer">
+            <summary>
+            The intrinsic device parameters for the accelerometer.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.MotionIntrinsics.Gyroscope">
+            <summary>
+            The intrinsic device parameters for the gyroscope.
+            </summary>
+        </member>
+        <member name="M:RealSense.Net.MotionIntrinsics.Equals(RealSense.Net.MotionIntrinsics)">
+            <summary>
+            Returns a value indicating whether this instance is equal to a specified
+            <see cref="T:RealSense.Net.MotionIntrinsics"/> value.
+            </summary>
+            <param name="other">A <see cref="T:RealSense.Net.MotionIntrinsics"/> value to compare to this instance.</param>
+            <returns>
+            <b>true</b> if <paramref name="other"/> has the same element values as
+            this instance; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.MotionIntrinsics.Equals(System.Object)">
+            <summary>
+            Returns a value indicating whether this instance is equal to a specified object.
+            </summary>
+            <param name="obj">An object to compare with this instance.</param>
+            <returns>
+            <b>true</b> if <paramref name="obj"/> is an instance of <see cref="T:RealSense.Net.MotionIntrinsics"/> and
+            has the same element values as this instance; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.MotionIntrinsics.GetHashCode">
+            <summary>
+            Returns the hash code for this instance.
+            </summary>
+            <returns>A 32-bit signed integer hash code.</returns>
+        </member>
+        <member name="M:RealSense.Net.MotionIntrinsics.ToString">
+            <summary>
+            Converts the numeric value of this instance to its equivalent string representation.
+            </summary>
+            <returns>
+            The string representation of all the elements in the motion module intrinsics.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.MotionIntrinsics.op_Equality(RealSense.Net.MotionIntrinsics,RealSense.Net.MotionIntrinsics)">
+            <summary>
+            Tests whether two <see cref="T:RealSense.Net.MotionIntrinsics"/> structures are equal.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.MotionIntrinsics"/> structure on the left of the equality operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.MotionIntrinsics"/> structure on the right of the equality operator.
+            </param>
+            <returns>
+            <b>true</b> if <paramref name="left"/> and <paramref name="right"/> have
+            all their elements equal; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.MotionIntrinsics.op_Inequality(RealSense.Net.MotionIntrinsics,RealSense.Net.MotionIntrinsics)">
+            <summary>
+            Tests whether two <see cref="T:RealSense.Net.MotionIntrinsics"/> structures are different.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.MotionIntrinsics"/> structure on the left of the inequality operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.MotionIntrinsics"/> structure on the right of the inequality operator.
+            </param>
+            <returns>
+            <b>true</b> if <paramref name="left"/> and <paramref name="right"/> differ
+            in any of their elements; <b>false</b> if <paramref name="left"/> and
+            <paramref name="right"/> are equal.
+            </returns>
+        </member>
+        <member name="T:RealSense.Net.RealSenseException">
+            <summary>
+            Represents an exception generated by the RealSense cross-platform API.
+            </summary>
+        </member>
+        <member name="M:RealSense.Net.RealSenseException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:RealSense.Net.RealSenseException"/> class.
+            </summary>
+        </member>
+        <member name="M:RealSense.Net.RealSenseException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RealSense.Net.RealSenseException"/> class
+            with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:RealSense.Net.RealSenseException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RealSense.Net.RealSenseException"/> class
+            with a specified error message and a reference to the inner exception
+            that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">
+            The exception that is the cause of the current exception, or a null reference
+            if no inner exception is specified.
+            </param>
+        </member>
+        <member name="M:RealSense.Net.RealSenseException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RealSense.Net.RealSenseException"/> class
+            with serialized data.
+            </summary>
+            <param name="info">
+            The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized
+            object data about the exception being thrown.
+            </param>
+            <param name="context">
+            The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual
+            information about the source or destination.
+            </param>
+        </member>
+        <member name="T:RealSense.Net.StreamMode">
+            <summary>
+            Represents the properties of a specific streaming mode.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.StreamMode.Width">
+            <summary>
+            The width of a frame image in pixels.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.StreamMode.Height">
+            <summary>
+            The height of a frame image in pixels.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.StreamMode.Format">
+            <summary>
+            The pixel format of a frame image.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.StreamMode.Framerate">
+            <summary>
+            The number of frames that will be streamed per second.
+            </summary>
+        </member>
+        <member name="M:RealSense.Net.StreamMode.Equals(RealSense.Net.StreamMode)">
+            <summary>
+            Returns a value indicating whether this instance is equal to a specified
+            <see cref="T:RealSense.Net.StreamMode"/> value.
+            </summary>
+            <param name="other">A <see cref="T:RealSense.Net.StreamMode"/> value to compare to this instance.</param>
+            <returns>
+            <b>true</b> if <paramref name="other"/> has the same element values as
+            this instance; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.StreamMode.Equals(System.Object)">
+            <summary>
+            Returns a value indicating whether this instance is equal to a specified object.
+            </summary>
+            <param name="obj">An object to compare with this instance.</param>
+            <returns>
+            <b>true</b> if <paramref name="obj"/> is an instance of <see cref="T:RealSense.Net.StreamMode"/> and
+            has the same element values as this instance; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.StreamMode.GetHashCode">
+            <summary>
+            Returns the hash code for this instance.
+            </summary>
+            <returns>A 32-bit signed integer hash code.</returns>
+        </member>
+        <member name="M:RealSense.Net.StreamMode.ToString">
+            <summary>
+            Converts the numeric value of this instance to its equivalent string representation.
+            </summary>
+            <returns>
+            The string representation of all the elements in the stream mode structure.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.StreamMode.op_Equality(RealSense.Net.StreamMode,RealSense.Net.StreamMode)">
+            <summary>
+            Tests whether two <see cref="T:RealSense.Net.StreamMode"/> structures are equal.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.StreamMode"/> structure on the left of the equality operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.StreamMode"/> structure on the right of the equality operator.
+            </param>
+            <returns>
+            <b>true</b> if <paramref name="left"/> and <paramref name="right"/> have
+            all their elements equal; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.StreamMode.op_Inequality(RealSense.Net.StreamMode,RealSense.Net.StreamMode)">
+            <summary>
+            Tests whether two <see cref="T:RealSense.Net.StreamMode"/> structures are different.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.StreamMode"/> structure on the left of the inequality operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.StreamMode"/> structure on the right of the inequality operator.
+            </param>
+            <returns>
+            <b>true</b> if <paramref name="left"/> and <paramref name="right"/> differ
+            in any of their elements; <b>false</b> if <paramref name="left"/> and
+            <paramref name="right"/> are equal.
+            </returns>
+        </member>
+        <member name="T:RealSense.Net.TimestampData">
+            <summary>
+            Represents timestamp data from the motion microcontroller.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.TimestampData.Timestamp">
+            <summary>
+            The timestamp in milliseconds.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.TimestampData.SourceId">
+            <summary>
+            The physical component that originated the event.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.TimestampData.FrameNumber">
+            <summary>
+            The frame number required to join timestamp data with the relevant frame.
+            </summary>
+        </member>
+        <member name="M:RealSense.Net.TimestampData.ToString">
+            <summary>
+            Converts the numeric value of this instance to its equivalent string representation.
+            </summary>
+            <returns>
+            The string representation of all the elements in the timestamp data.
+            </returns>
+        </member>
+        <member name="T:RealSense.Net.Stream">
+            <summary>
+            Specifies the different types of data provided by RealSense devices.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Stream.Depth">
+            <summary>
+            Native stream of depth data produced by RealSense device.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Stream.Color">
+            <summary>
+            Native stream of color data captured by RealSense device.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Stream.Infrared">
+            <summary>
+            Native stream of infrared data captured by RealSense device.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Stream.Infrared2">
+            <summary>
+            Native stream of infrared data captured from a second viewpoint by RealSense device.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Stream.Fisheye">
+            <summary>
+            Native stream of fish-eye (wide) data captured from the dedicated motion camera.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Stream.Points">
+            <summary>
+            Synthetic stream containing point cloud data generated by deprojecting the depth image.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Stream.RectifiedColor">
+            <summary>
+            Synthetic stream containing undistorted color data with no extrinsic rotation from the depth stream.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Stream.ColorAlignedToDepth">
+            <summary>
+            Synthetic stream containing color data but sharing intrinsics of depth stream.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Stream.Infrared2AlignedToDepth">
+            <summary>
+            Synthetic stream containing second viewpoint infrared data but sharing intrinsics of depth stream.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Stream.DepthAlignedToColor">
+            <summary>
+            Synthetic stream containing depth data but sharing intrinsics of color stream.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Stream.DepthAlignedToRectifiedColor">
+            <summary>
+            Synthetic stream containing depth data but sharing intrinsics of rectified color stream.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Stream.DepthAlignedToInfrared2">
+            <summary>
+            Synthetic stream containing depth data but sharing intrinsics of second viewpoint infrared stream.
+            </summary>
+        </member>
+        <member name="T:RealSense.Net.PixelFormat">
+            <summary>
+            Specifies how a frame is represented in memory.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.PixelFormat.Any">
+            <summary>
+            When passed to enable stream, librealsense will try to provide best suited format.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.PixelFormat.Z16">
+            <summary>
+            16-bit linear depth values. The depth is meters is equal to depth scale * pixel value.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.PixelFormat.Disparity16">
+            <summary>
+            16-bit linear disparity values. The depth in meters is equal to depth scale / pixel value.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.PixelFormat.Xyz32f">
+            <summary>
+            32-bit floating point 3D coordinates.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.PixelFormat.Yuyv">
+            <summary>
+            Standard YUV pixel format as described in https://en.wikipedia.org/wiki/YUV.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.PixelFormat.Rgb8">
+            <summary>
+            8-bit red, green and blue channels.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.PixelFormat.Bgr8">
+            <summary>
+            8-bit blue, green, and red channels -- suitable for OpenCV.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.PixelFormat.Rgba8">
+            <summary>
+            8-bit red, green and blue channels + constant alpha channel equal to FF.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.PixelFormat.Bgra8">
+            <summary>
+            8-bit blue, green, and red channels + constant alpha channel equal to FF.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.PixelFormat.Y8">
+            <summary>
+            8-bit per-pixel grayscale image.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.PixelFormat.Y16">
+            <summary>
+            16-bit per-pixel grayscale image.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.PixelFormat.Raw10">
+            <summary>
+            Four 10-bit luminance values encoded into a 5-byte macropixel.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.PixelFormat.Raw16">
+            <summary>
+            16-bit raw image.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.PixelFormat.Raw8">
+            <summary>
+            8-bit raw image.
+            </summary>
+        </member>
+        <member name="T:RealSense.Net.OutputBufferFormat">
+            <summary>
+            Specifies the layout of the output buffer used to store frame memory.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.OutputBufferFormat.Continuous">
+            <summary>
+            Makes sure that the output frame is exposed as a single continuous buffer.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.OutputBufferFormat.Native">
+            <summary>
+            Does not convert buffer to continuous. The user has to handle pitch manually.
+            </summary>
+        </member>
+        <member name="T:RealSense.Net.Preset">
+            <summary>
+            Specifies general camera modes that can be translated by the API into concrete resolution and FPS.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Preset.BestQuality">
+            <summary>
+            Prefer best overall quality.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Preset.LargestImage">
+            <summary>
+            Prefer largest image size.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Preset.HighestFramerate">
+            <summary>
+            Prefer highest frame rate.
+            </summary>
+        </member>
+        <member name="T:RealSense.Net.Source">
+            <summary>
+            Specifies which available hardware subdevices to start or stop.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Source.Video">
+            <summary>
+            Video streaming of depth, infrared, color, or fish-eye.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Source.MotionTracking">
+            <summary>
+            Motion tracking from gyroscope and accelerometer.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Source.All">
+            <summary>
+            Enable everything together.
+            </summary>
+        </member>
+        <member name="T:RealSense.Net.Distortion">
+            <summary>
+            Specifies the distortion model defining how pixel coordinates should be mapped to sensor coordinates.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Distortion.None">
+            <summary>
+            Rectilinear images. No distortion compensation required.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Distortion.ModifiedBrownConrady">
+            <summary>
+            Equivalent to Brown-Conrady distortion, except that tangential distortion is applied to radially distorted points.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Distortion.InverseBrownConrady">
+            <summary>
+            Equivalent to Brown-Conrady distortion, except undistorts image instead of distorting it.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Distortion.FTheta">
+            <summary>
+            Distortion model of the fish-eye camera.
+            </summary>
+        </member>
+        <member name="T:RealSense.Net.DepthControlPreset">
+            <summary>
+            Specifies recommended settings for depth control parameters in R200 devices.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.DepthControlPreset.Default">
+            <summary>
+            Default settings on chip. Similar to the medium setting and best for outdoors.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.DepthControlPreset.Off">
+            <summary>
+            Disable almost all hardware-based outlier removal.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.DepthControlPreset.Low">
+            <summary>
+            Provide a depthmap with a lower number of outliers removed, which has minimal false negatives.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.DepthControlPreset.Medium">
+            <summary>
+            Provide a depthmap with a medium number of outliers removed, for a balanced approach.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.DepthControlPreset.Optimized">
+            <summary>
+            Provide a depthmap with a medium to high number of outliers removed. Derived from an optimization function.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.DepthControlPreset.High">
+            <summary>
+            Provide a depthmap with a higher number of outliers removed, which has minimal false positives.
+            </summary>
+        </member>
+        <member name="T:RealSense.Net.IVCamPreset">
+            <summary>
+            Specifies optimized settings for different types of usage in SR300 devices.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.IVCamPreset.ShortRange">
+            <summary>
+            Preset for short range.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.IVCamPreset.LongRange">
+            <summary>
+            Preset for long range.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.IVCamPreset.BackgroundSegmentation">
+            <summary>
+            Preset for background segmentation.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.IVCamPreset.GestureRecognition">
+            <summary>
+            Preset for gesture recognition.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.IVCamPreset.ObjectScanning">
+            <summary>
+            Preset for object scanning.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.IVCamPreset.FaceAnalytics">
+            <summary>
+            Preset for face analytics.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.IVCamPreset.FaceLogin">
+            <summary>
+            Preset for face login.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.IVCamPreset.GrCursor">
+            <summary>
+            Preset for GR cursor.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.IVCamPreset.Default">
+            <summary>
+            Preset for default.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.IVCamPreset.MidRange">
+            <summary>
+            Preset for mid-range.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.IVCamPreset.IrOnly">
+            <summary>
+            Preset for IR only.
+            </summary>
+        </member>
+        <member name="T:RealSense.Net.Option">
+            <summary>
+            Specifies general device configuration controls.
+            </summary>
+            <remarks>
+            These can generally be mapped to camera UVC controls, and unless stated otherwise,
+            can be set or queried at any time.
+            </remarks>
+        </member>
+        <member name="F:RealSense.Net.Option.ColorBacklightCompensation">
+            <summary>
+            Enable/disable color backlight compensation.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.ColorBrightness">
+            <summary>
+            Color image brightness.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.ColorContrast">
+            <summary>
+            Color image contrast.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.ColorExposure">
+            <summary>
+            Controls exposure time of color camera. Setting any value will disable auto exposure.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.ColorGain">
+            <summary>
+            Color image gain.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.ColorGamma">
+            <summary>
+            Color image gamma setting.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.ColorHue">
+            <summary>
+            Color image hue.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.ColorSaturation">
+            <summary>
+            Color image saturation setting.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.ColorSharpness">
+            <summary>
+            Color image sharpness setting.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.ColorWhiteBalance">
+            <summary>
+            Controls white balance of color image. Setting any value will disable auto white balance.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.ColorEnableAutoExposure">
+            <summary>
+            Enable/disable color image auto-exposure.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.ColorEnableAutoWhiteBalance">
+            <summary>
+            Enable/disable color image auto-white-balance.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.F200LaserPower">
+            <summary>
+            Power of the F200/SR300 projector, with 0 meaning projector off.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.F200Accuracy">
+            <summary>
+            Set the number of patterns projected per frame. The higher the accuracy value, the more patterns projected. Increasing the number of patterns helps to achieve better accuracy. Note that this control affects the depth FPS.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.F200MotionRange">
+            <summary>
+            Motion vs. range trade-off, with lower values allowing for better motion sensitivity and higher values allowing for better depth range.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.F200FilterOption">
+            <summary>
+            Set the filter to apply to each depth frame. Each one of the filters is optimized per the application requirements.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.F200ConfidenceThreshold">
+            <summary>
+            Confidence level threshold used by the depth algorithm pipe to set whether a pixel will get a valid range or will be marked with invalid range.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.F200DynamicFps">
+            <summary>
+            (F200-only) Allows to reduce FPS without restarting streaming. Valid values are {2, 5, 15, 30, 60}.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.Sr300AutoRangeEnableMotionVersusRange">
+            <summary>
+            Configures SR300 depth auto-range setting. Should not be used directly but through the \c rsApplyIvcamPreset method in rsutil.h.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.Sr300AutoRangeEnableLaser">
+            <summary>
+            Configures SR300 depth auto-range setting. Should not be used directly but through the \c rsApplyIvcamPreset method in rsutil.h.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.Sr300AutoRangeMinMotionVersusRange">
+            <summary>
+            Configures SR300 depth auto-range setting. Should not be used directly but through the \c rsApplyIvcamPreset method in rsutil.h.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.Sr300AutoRangeMaxMotionVersusRange">
+            <summary>
+            Configures SR300 depth auto-range setting. Should not be used directly but through the \c rsApplyIvcamPreset method in rsutil.h.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.Sr300AutoRangeStartMotionVersusRange">
+            <summary>
+            Configures SR300 depth auto-range setting. Should not be used directly but through the \c rsApplyIvcamPreset method in rsutil.h.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.Sr300AutoRangeMinLaser">
+            <summary>
+            Configures SR300 depth auto-range setting. Should not be used directly but through the \c rsApplyIvcamPreset method in rsutil.h.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.Sr300AutoRangeMaxLaser">
+            <summary>
+            Configures SR300 depth auto-range setting. Should not be used directly but through the \c rsApplyIvcamPreset method in rsutil.h.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.Sr300AutoRangeStartLaser">
+            <summary>
+            Configures SR300 depth auto-range setting. Should not be used directly but through the \c rsApplyIvcamPreset method in rsutil.h.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.Sr300AutoRangeUpperThreshold">
+            <summary>
+            Configures SR300 depth auto-range setting. Should not be used directly but through the \c rsApplyIvcamPreset method in rsutil.h.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.Sr300AutoRangeLowerThreshold">
+            <summary>
+            Configures SR300 depth auto-range setting. Should not be used directly but through the \c rsApplyIvcamPreset method in rsutil.h.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200LrAutoExposureEnabled">
+            <summary>
+            Enable/disable R200 auto-exposure. This will affect both the IR and depth images.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200LrGain">
+            <summary>
+            IR image gain.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200LrExposure">
+            <summary>
+            This control allows manual adjustment of the exposure time value for the L/R imagers.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200EmitterEnabled">
+            <summary>
+            Enables/disables R200 emitter.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200DepthUnits">
+            <summary>
+            Micrometers per increment in integer depth values. 1000 is default (mm scale). Set before streaming.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200DepthClampMin">
+            <summary>
+            Minimum depth in current depth units that will be output. Any values less than ג€˜Min Depthג€™ will be mapped to 0 during the conversion between disparity and depth. Set before streaming.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200DepthClampMax">
+            <summary>
+            Maximum depth in current depth units that will be output. Any values greater than ג€˜Max Depthג€™ will be mapped to 0 during the conversion between disparity and depth. Set before streaming.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200DisparityMultiplier">
+            <summary>
+            Disparity scale factor used when in disparity output mode. Can only be set before streaming.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200DisparityShift">
+            <summary>
+            {0 - 512}. Can only be set before streaming starts.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200AutoExposureMeanIntensitySetPoint">
+            <summary>
+            Mean intensity set point. Requires the \c R200LRAUTOEXPOSUREENABLED option to be set to 1.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200AutoExposureBrightRatioSetPoint">
+            <summary>
+            Bright ratio set point. Requires the \c R200LRAUTOEXPOSUREENABLED option to be set to 1.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200AutoExposureKpGain">
+            <summary>
+            Kp gain. Requires the \c R200LRAUTOEXPOSUREENABLED option to be set to 1.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200AutoExposureKpExposure">
+            <summary>
+            Kp exposure. Requires the \c R200LRAUTOEXPOSUREENABLED option to be set to 1.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200AutoExposureKpDarkThreshold">
+            <summary>
+            Kp dark threshold. Requires the \c R200LRAUTOEXPOSUREENABLED option to be set to 1.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200AutoExposureTopEdge">
+            <summary>
+            Auto-exposure region-of-interest top edge (in pixels). Requires the \c R200LRAUTOEXPOSUREENABLED option to be set to 1.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200AutoExposureBottomEdge">
+            <summary>
+            Auto-exposure region-of-interest bottom edge (in pixels). Requires the \c R200LRAUTOEXPOSUREENABLED option to be set to 1.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200AutoExposureLeftEdge">
+            <summary>
+            Auto-exposure region-of-interest left edge (in pixels). Requires the \c R200LRAUTOEXPOSUREENABLED option to be set to 1.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200AutoExposureRightEdge">
+            <summary>
+            Auto-exposure region-of-interest right edge (in pixels). Requires the \c R200LRAUTOEXPOSUREENABLED option to be set to 1.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200DepthControlEstimateMedianDecrement">
+            <summary>
+            Value to subtract when estimating the median of the correlation surface.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200DepthControlEstimateMedianIncrement">
+            <summary>
+            Value to add when estimating the median of the correlation surface.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200DepthControlMedianThreshold">
+            <summary>
+            Threshold: by how much the winning score exceeds the median.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200DepthControlScoreMinimumThreshold">
+            <summary>
+            Minimum correlation score that is considered acceptable.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200DepthControlScoreMaximumThreshold">
+            <summary>
+            Maximum correlation score that is considered acceptable.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200DepthControlTextureCountThreshold">
+            <summary>
+            Parameter for determining whether the texture in the region is sufficient to justify a depth result.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200DepthControlTextureDifferenceThreshold">
+            <summary>
+            Parameter for determining whether the texture in the region is sufficient to justify a depth result.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200DepthControlSecondPeakThreshold">
+            <summary>
+            Threshold: how much the minimum correlation score must differ from the next best score.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200DepthControlNeighborThreshold">
+            <summary>
+            Neighbor threshold value for depth calculation.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.R200DepthControlLRThreshold">
+            <summary>
+            Left-right threshold value for depth calculation.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.FisheyeExposure">
+            <summary>
+            Fisheye image exposure time in msec.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.FisheyeGain">
+            <summary>
+            Fisheye image gain.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.FisheyeStrobe">
+            <summary>
+            Enable/disable fisheye strobe. When enabled, aligns timestamps to common clock-domain with the motion events.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.FisheyeExternalTrigger">
+            <summary>
+            Enable/disable fisheye external trigger mode. When enabled, fisheye image will be aquired in-sync with the depth image.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.FisheyeEnableAutoExposure">
+            <summary>
+            Enable/disable fisheye auto-exposure.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.FisheyeAutoExposureMode">
+            <summary>
+            0 - static auto-exposure, 1 - anti-flicker auto-exposure, 2 - hybrid.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.FisheyeAutoExposureAntiflickerRate">
+            <summary>
+            Fisheye auto-exposure anti-flicker rate. Can be 50 or 60 Hz.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.FisheyeAutoExposurePixelSampleRate">
+            <summary>
+            In Fisheye auto-exposure sample frame every given number of pixels.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.FisheyeAutoExposureSkipFrames">
+            <summary>
+            In Fisheye auto-exposure sample every given number of frames.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.FramesQueueSize">
+            <summary>
+            Number of frames the user is allowed to keep per stream. Trying to hold on to more frames will cause frame-drops.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.HardwareLoggerEnabled">
+            <summary>
+            Enable/disable fetching log data from the device.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Option.TotalFrameDrops">
+            <summary>
+            Total number of detected frame drops from all streams.
+            </summary>
+        </member>
+        <member name="T:RealSense.Net.FrameMetadata">
+            <summary>
+            Specifies the types of value provided from the device with each frame.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.FrameMetadata.ActualExposure">
+            <summary>
+            Actual exposure at which the frame was captured.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.FrameMetadata.ActualFps">
+            <summary>
+            Actual FPS at the time of capture.
+            </summary>
+        </member>
+        <member name="T:RealSense.Net.Capabilities">
+            <summary>
+            Specifies various capabilities of a RealSense device.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Capabilities.Depth">
+            <summary>
+            Provides depth stream.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Capabilities.Color">
+            <summary>
+            Provides color stream.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Capabilities.Infrared">
+            <summary>
+            Provides infrared stream.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Capabilities.Infrared2">
+            <summary>
+            Provides second infrared stream.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Capabilities.FishEye">
+            <summary>
+            Provides wide field of view (fish-eye) stream.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Capabilities.MotionEvents">
+            <summary>
+            Provides gyroscope and accelorometer events.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Capabilities.MotionModuleFwUpdate">
+            <summary>
+            Provides method for upgrading motion module firmware.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Capabilities.AdapterBoard">
+            <summary>
+            Internally MIPI-to-USB adapter.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Capabilities.Enumeration">
+            <summary>
+            Provides enough basic functionality to be considered supported. This is to catch at runtime various outdated engineering samples.
+            </summary>
+        </member>
+        <member name="T:RealSense.Net.BlobType">
+            <summary>
+            Specifies proprietary formats for direct communication with the device firmware.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.BlobType.MotionModuleFirmwareUpdate">
+            <summary>
+            By using this option, new firmware can be uploaded to the ZR300 motion-module.
+            </summary>
+        </member>
+        <member name="T:RealSense.Net.CameraInfo">
+            <summary>
+            Specifies several read-only strings that can be queried from the device.
+            </summary>
+            <remarks>
+            Not all information fields are available on all camera types. This information is
+            mainly available for camera debug and troubleshooting and should not be used in applications.
+            </remarks>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.DeviceName">
+            <summary>
+            Device friendly name.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.DeviceSerialNumber">
+            <summary>
+            Device serial number.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.CameraFirmwareVersion">
+            <summary>
+            Primary firmware version.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.AdapterBoardFirmwareVersion">
+            <summary>
+            MIPI-to-USB adapter board firmware version if such board is present.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.MotionModuleFirmwareVersion">
+            <summary>
+            Motion module firmware version if motion module is present.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.CameraType">
+            <summary>
+            R200/LR200/ZR300 camera type.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.OemId">
+            <summary>
+            OEM ID.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.IspFwVersion">
+            <summary>
+            ISP firmware version, when available.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.ContentVersion">
+            <summary>
+            R200/LR200/ZR300 content version.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.ModuleVersion">
+            <summary>
+            R200/LR200/ZR300 module version.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.ImagerModelNumber">
+            <summary>
+            Primary imager model number.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.BuildDate">
+            <summary>
+            Device build date.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.CalibrationDate">
+            <summary>
+            Primary calibration date.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.ProgramDate">
+            <summary>
+            R200/LR200/ZR300 program date.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.FocusAlignmentDate">
+            <summary>
+            Focus calibration date.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.EmitterType">
+            <summary>
+            R200/LR200/ZR300 emitter type.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.FocusValue">
+            <summary>
+            Result of the focus calibration.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.LensType">
+            <summary>
+            Primary lens type.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.ColorLensType">
+            <summary>
+            Color imager lens type.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.LensCoatingType">
+            <summary>
+            Lens coating type.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.ColorLensCoatingType">
+            <summary>
+            Color coating type.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.NominalBaseline">
+            <summary>
+            Nominal baseline.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.CameraInfo.ColorNominalBaseline">
+            <summary>
+            Color nominal baseline.
+            </summary>
+        </member>
+        <member name="T:RealSense.Net.LogSeverity">
+            <summary>
+            Specifies the severity of the API logger.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.LogSeverity.Debug">
+            <summary>
+            Detailed information about ordinary operations.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.LogSeverity.Info">
+            <summary>
+            Terse information about ordinary operations.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.LogSeverity.Warn">
+            <summary>
+            Indication of possible failure.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.LogSeverity.Error">
+            <summary>
+            Indication of definite failure.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.LogSeverity.Fatal">
+            <summary>
+            Indication of unrecoverable failure.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.LogSeverity.None">
+            <summary>
+            No logging will occur.
+            </summary>
+        </member>
+        <member name="T:RealSense.Net.EventSource">
+            <summary>
+            Specifies the source device that triggered a specific timestamp event from the motion module.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.EventSource.ImuAccel">
+            <summary>
+            Event from accelerometer.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.EventSource.ImuGyro">
+            <summary>
+            Event from the gyroscope.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.EventSource.ImuDepthCam">
+            <summary>
+            Event from depth camera (depth/IR frame).
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.EventSource.ImuMotionCam">
+            <summary>
+            Event from the fish-eye camera.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.EventSource.G0Sync">
+            <summary>
+            Event from external GPIO 0.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.EventSource.G1Sync">
+            <summary>
+            Event from external GPIO 1.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.EventSource.G2Sync">
+            <summary>
+            Event from external GPIO 2.
+            </summary>
+        </member>
+        <member name="T:RealSense.Net.TimestampDomain">
+            <summary>
+            Specifies the clock in relation to which the frame timestamp was measured.
+            </summary>
+            <remarks>
+            When working with a motion microcontroller, motion data timestamps are always in the microcontroller timestamp domain.
+            Some frames, however, might not successfully receive microcontroller timestamps and will be marked as camera domain.
+            </remarks>
+        </member>
+        <member name="F:RealSense.Net.TimestampDomain.Camera">
+            <summary>
+            Frame timestamp was measured in relation to the camera clock.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.TimestampDomain.Microcontroller">
+            <summary>
+            Frame timestamp was measured in relation to the microcontroller clock.
+            </summary>
+        </member>
+        <member name="T:RealSense.Net.FrameCallback">
+            <summary>
+            Represents the method that will be invoked whenever a new frame arrives.
+            </summary>
+            <param name="frame">The frame data object.</param>
+        </member>
+        <member name="T:RealSense.Net.MotionCallback">
+            <summary>
+            Represents the method that will be invoked whenever new motion data arrives.
+            </summary>
+            <param name="entry">The motion data object.</param>
+        </member>
+        <member name="T:RealSense.Net.TimestampCallback">
+            <summary>
+            Represents the method that will be invoked whenever new timestamp data arrives.
+            </summary>
+            <param name="entry">The timestamp data object.</param>
+        </member>
+        <member name="T:RealSense.Net.LogCallback">
+            <summary>
+            Represents the method that will be invoked whenever a new message needs to be logged.
+            </summary>
+            <param name="severity">The severity of the logged message.</param>
+            <param name="message">The message to be logged.</param>
+        </member>
+        <member name="T:RealSense.Net.Vector2">
+            <summary>
+            Represents a vector with two components.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Vector2.One">
+            <summary>
+            Represents a <see cref="T:RealSense.Net.Vector2"/> with ones in all of its components.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Vector2.Zero">
+            <summary>
+            Represents a <see cref="T:RealSense.Net.Vector2"/> with all of its components set to zero.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Vector2.UnitX">
+            <summary>
+            Represents a unit-length <see cref="T:RealSense.Net.Vector2"/> that points towards the X axis.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Vector2.UnitY">
+            <summary>
+            Represents a unit-length <see cref="T:RealSense.Net.Vector2"/> that points towards the Y axis.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Vector2.X">
+            <summary>
+            Specifies the x-component of the vector.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Vector2.Y">
+            <summary>
+            Specifies the y-component of the vector.
+            </summary>
+        </member>
+        <member name="M:RealSense.Net.Vector2.#ctor(System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RealSense.Net.Vector2"/> structure
+            with all components set to the same value.
+            </summary>
+            <param name="value">The value to initialize each component to.</param>
+        </member>
+        <member name="M:RealSense.Net.Vector2.#ctor(System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RealSense.Net.Vector2"/> structure
+            with the specified component values.
+            </summary>
+            <param name="x">The value of the x-component of the vector.</param>
+            <param name="y">The value of the y-component of the vector.</param>
+        </member>
+        <member name="M:RealSense.Net.Vector2.Equals(RealSense.Net.Vector2)">
+            <summary>
+            Returns a value indicating whether this instance is equal to a specified
+            <see cref="T:RealSense.Net.Vector2"/> value.
+            </summary>
+            <param name="other">A <see cref="T:RealSense.Net.Vector2"/> value to compare to this instance.</param>
+            <returns>
+            <b>true</b> if <paramref name="other"/> has the same X and Y components as
+            this instance; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Vector2.Equals(System.Object)">
+            <summary>
+            Returns a value indicating whether this instance is equal to a specified object.
+            </summary>
+            <param name="obj">An object to compare with this instance.</param>
+            <returns>
+            <b>true</b> if <paramref name="obj"/> is an instance of <see cref="T:RealSense.Net.Vector2"/> and
+            has the same X and Y components as this instance; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Vector2.GetHashCode">
+            <summary>
+            Returns the hash code for this instance.
+            </summary>
+            <returns>A 32-bit signed integer hash code.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector2.ToString">
+            <summary>
+            Converts the numeric value of this instance to its equivalent string representation.
+            </summary>
+            <returns>
+            The string representation of the X and Y components of this instance.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Vector2.Negate(RealSense.Net.Vector2)">
+            <summary>
+            Returns a new vector pointing in the opposite direction of the
+            source vector.
+            </summary>
+            <param name="value">The source vector.</param>
+            <returns>A vector pointing in the opposite direction of the source vector.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector2.Negate(RealSense.Net.Vector2@,RealSense.Net.Vector2@)">
+            <summary>
+            Returns a new vector pointing in the opposite direction of the
+            source vector.
+            </summary>
+            <param name="value">The source vector.</param>
+            <param name="result">A vector pointing in the opposite direction of the source vector.</param>
+        </member>
+        <member name="M:RealSense.Net.Vector2.Add(RealSense.Net.Vector2,RealSense.Net.Vector2)">
+            <summary>
+            Adds two vectors and returns the result as a new <see cref="T:RealSense.Net.Vector2"/>.
+            </summary>
+            <param name="value1">The first vector to add.</param>
+            <param name="value2">The second vector to add.</param>
+            <returns>The sum of the two vectors.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector2.Add(RealSense.Net.Vector2@,RealSense.Net.Vector2@,RealSense.Net.Vector2@)">
+            <summary>
+            Adds two vectors and returns the result as a new <see cref="T:RealSense.Net.Vector2"/>.
+            </summary>
+            <param name="value1">The first vector to add.</param>
+            <param name="value2">The second vector to add.</param>
+            <param name="result">The sum of the two vectors.</param>
+        </member>
+        <member name="M:RealSense.Net.Vector2.Subtract(RealSense.Net.Vector2,RealSense.Net.Vector2)">
+            <summary>
+            Subtracts a vector from another vector and returns the result as a new
+            <see cref="T:RealSense.Net.Vector2"/>.
+            </summary>
+            <param name="value1">The vector from which the other vector will be subtracted.</param>
+            <param name="value2">The vector that is to be subtracted.</param>
+            <returns>The result of the subtraction.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector2.Subtract(RealSense.Net.Vector2@,RealSense.Net.Vector2@,RealSense.Net.Vector2@)">
+            <summary>
+            Subtracts a vector from another vector and returns the result as a new
+            <see cref="T:RealSense.Net.Vector2"/>.
+            </summary>
+            <param name="value1">The vector from which the other vector will be subtracted.</param>
+            <param name="value2">The vector that is to be subtracted.</param>
+            <param name="result">The result of the subtraction.</param>
+        </member>
+        <member name="M:RealSense.Net.Vector2.Multiply(RealSense.Net.Vector2,System.Single)">
+            <summary>
+            Multiplies a vector by a scalar value and returns the result as
+            a new <see cref="T:RealSense.Net.Vector2"/>.
+            </summary>
+            <param name="value1">The source vector.</param>
+            <param name="value2">The scalar value.</param>
+            <returns>The result of the multiplication.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector2.Multiply(RealSense.Net.Vector2@,System.Single,RealSense.Net.Vector2@)">
+            <summary>
+            Multiplies a vector by a scalar value and returns the result as
+            a new <see cref="T:RealSense.Net.Vector2"/>.
+            </summary>
+            <param name="value1">The source vector.</param>
+            <param name="value2">The scalar value.</param>
+            <param name="result">The result of the multiplication.</param>
+        </member>
+        <member name="M:RealSense.Net.Vector2.Multiply(RealSense.Net.Vector2,RealSense.Net.Vector2)">
+            <summary>
+            Multiplies the components of two vectors by each other and returns
+            the result as a new <see cref="T:RealSense.Net.Vector2"/>.
+            </summary>
+            <param name="value1">The first vector to multiply the components of.</param>
+            <param name="value2">The second vector to multiply the components of.</param>
+            <returns>The result of the multiplication.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector2.Multiply(RealSense.Net.Vector2@,RealSense.Net.Vector2@,RealSense.Net.Vector2@)">
+            <summary>
+            Multiplies the components of two vectors by each other and returns
+            the result as a new <see cref="T:RealSense.Net.Vector2"/>.
+            </summary>
+            <param name="value1">The first vector to multiply the components of.</param>
+            <param name="value2">The second vector to multiply the components of.</param>
+            <param name="result">The result of the multiplication.</param>
+        </member>
+        <member name="M:RealSense.Net.Vector2.Divide(RealSense.Net.Vector2,System.Single)">
+            <summary>
+            Divides a vector by a scalar value and returns the result as
+            a new <see cref="T:RealSense.Net.Vector2"/>.
+            </summary>
+            <param name="value1">The source vector.</param>
+            <param name="value2">The scalar value.</param>
+            <returns>The result of the division.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector2.Divide(RealSense.Net.Vector2@,System.Single,RealSense.Net.Vector2@)">
+            <summary>
+            Divides a vector by a scalar value and returns the result as
+            a new <see cref="T:RealSense.Net.Vector2"/>.
+            </summary>
+            <param name="value1">The source vector.</param>
+            <param name="value2">The scalar value.</param>
+            <param name="result">The result of the division.</param>
+        </member>
+        <member name="M:RealSense.Net.Vector2.Divide(RealSense.Net.Vector2,RealSense.Net.Vector2)">
+            <summary>
+            Divides the components of a vector by the components of another vector
+            and returns the result as a new <see cref="T:RealSense.Net.Vector2"/>.
+            </summary>
+            <param name="value1">The vector whose components will be divided.</param>
+            <param name="value2">The divisor vector.</param>
+            <returns>The result of the division.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector2.Divide(RealSense.Net.Vector2@,RealSense.Net.Vector2@,RealSense.Net.Vector2@)">
+            <summary>
+            Divides the components of a vector by the components of another vector
+            and returns the result as a new <see cref="T:RealSense.Net.Vector2"/>.
+            </summary>
+            <param name="value1">The vector whose components will be divided.</param>
+            <param name="value2">The divisor vector.</param>
+            <param name="result">The result of the division.</param>
+        </member>
+        <member name="M:RealSense.Net.Vector2.Dot(RealSense.Net.Vector2,RealSense.Net.Vector2)">
+            <summary>
+            Calculates the dot product of two vectors.
+            </summary>
+            <param name="value1">The first source vector.</param>
+            <param name="value2">The second source vector.</param>
+            <returns>The dot product of the two source vectors.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector2.Dot(RealSense.Net.Vector2@,RealSense.Net.Vector2@,System.Single@)">
+            <summary>
+            Calculates the dot product of two vectors.
+            </summary>
+            <param name="value1">The first source vector.</param>
+            <param name="value2">The second source vector.</param>
+            <param name="result">The dot product of the two source vectors.</param>
+        </member>
+        <member name="M:RealSense.Net.Vector2.op_Equality(RealSense.Net.Vector2,RealSense.Net.Vector2)">
+            <summary>
+            Tests whether two <see cref="T:RealSense.Net.Vector2"/> structures are equal.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Vector2"/> structure on the left of the equality operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Vector2"/> structure on the right of the equality operator.
+            </param>
+            <returns>
+            <b>true</b> if <paramref name="left"/> and <paramref name="right"/> have
+            equal X and Y components; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Vector2.op_Inequality(RealSense.Net.Vector2,RealSense.Net.Vector2)">
+            <summary>
+            Tests whether two <see cref="T:RealSense.Net.Vector2"/> structures are different.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Vector2"/> structure on the left of the inequality operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Vector2"/> structure on the right of the inequality operator.
+            </param>
+            <returns>
+            <b>true</b> if <paramref name="left"/> and <paramref name="right"/> differ
+            in X or Y components; <b>false</b> if <paramref name="left"/> and
+            <paramref name="right"/> are equal.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Vector2.op_UnaryNegation(RealSense.Net.Vector2)">
+            <summary>
+            Returns a new vector pointing in the opposite direction of the
+            source vector.
+            </summary>
+            <param name="value">The source vector.</param>
+            <returns>A vector pointing in the opposite direction of the source vector.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector2.op_Addition(RealSense.Net.Vector2,RealSense.Net.Vector2)">
+            <summary>
+            Adds two vectors and returns the result as a new <see cref="T:RealSense.Net.Vector2"/>.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Vector2"/> structure on the left of the addition operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Vector2"/> structure on the right of the addition operator.
+            </param>
+            <returns>The sum of the two vectors.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector2.op_Subtraction(RealSense.Net.Vector2,RealSense.Net.Vector2)">
+            <summary>
+            Subtracts a vector from another vector and returns the result as a new
+            <see cref="T:RealSense.Net.Vector2"/>.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Vector2"/> structure on the left of the subtraction operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Vector2"/> structure on the right of the subtraction operator.
+            </param>
+            <returns>The result of the subtraction.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector2.op_Multiply(System.Single,RealSense.Net.Vector2)">
+            <summary>
+            Multiplies a vector by a scalar value and returns the result as
+            a new <see cref="T:RealSense.Net.Vector2"/>.
+            </summary>
+            <param name="left">
+            The scalar value on the left of the multiplication operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Vector2"/> structure on the right of the multiplication operator.
+            </param>
+            <returns>The result of the multiplication.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector2.op_Multiply(RealSense.Net.Vector2,System.Single)">
+            <summary>
+            Multiplies a vector by a scalar value and returns the result as
+            a new <see cref="T:RealSense.Net.Vector2"/>.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Vector2"/> structure on the left of the multiplication operator.
+            </param>
+            <param name="right">
+            The scalar value on the right of the multiplication operator.
+            </param>
+            <returns>The result of the multiplication.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector2.op_Multiply(RealSense.Net.Vector2,RealSense.Net.Vector2)">
+            <summary>
+            Multiplies the components of two vectors by each other and returns
+            the result as a new <see cref="T:RealSense.Net.Vector2"/>.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Vector2"/> structure on the left of the multiplication operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Vector2"/> structure on the right of the multiplication operator.
+            </param>
+            <returns>The result of the multiplication.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector2.op_Division(RealSense.Net.Vector2,System.Single)">
+            <summary>
+            Divides a vector by a scalar value and returns the result as
+            a new <see cref="T:RealSense.Net.Vector2"/>.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Vector2"/> structure on the left of the division operator.
+            </param>
+            <param name="right">
+            The scalar value on the right of the division operator.
+            </param>
+            <returns>The result of the division.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector2.op_Division(RealSense.Net.Vector2,RealSense.Net.Vector2)">
+            <summary>
+            Divides the components of a vector by the components of another vector
+            and returns the result as a new <see cref="T:RealSense.Net.Vector2"/>.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Vector2"/> structure on the left of the division operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Vector2"/> structure on the right of the division operator.
+            </param>
+            <returns>The result of the division.</returns>
+        </member>
+        <member name="T:RealSense.Net.Vector3">
+            <summary>
+            Represents a vector with three components.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Vector3.One">
+            <summary>
+            Represents a <see cref="T:RealSense.Net.Vector3"/> with ones in all of its components.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Vector3.Zero">
+            <summary>
+            Represents a <see cref="T:RealSense.Net.Vector3"/> with all of its components set to zero.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Vector3.UnitX">
+            <summary>
+            Represents a unit-length <see cref="T:RealSense.Net.Vector3"/> that points towards the X axis.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Vector3.UnitY">
+            <summary>
+            Represents a unit-length <see cref="T:RealSense.Net.Vector3"/> that points towards the Y axis.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Vector3.UnitZ">
+            <summary>
+            Represents a unit-length <see cref="T:RealSense.Net.Vector3"/> that points towards the Z axis.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Vector3.X">
+            <summary>
+            Specifies the x-component of the vector.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Vector3.Y">
+            <summary>
+            Specifies the y-component of the vector.
+            </summary>
+        </member>
+        <member name="F:RealSense.Net.Vector3.Z">
+            <summary>
+            Specifies the z-component of the vector.
+            </summary>
+        </member>
+        <member name="M:RealSense.Net.Vector3.#ctor(System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RealSense.Net.Vector3"/> structure
+            with all components set to the same value.
+            </summary>
+            <param name="value">The value to initialize each component to.</param>
+        </member>
+        <member name="M:RealSense.Net.Vector3.#ctor(System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RealSense.Net.Vector3"/> structure
+            with the specified component values.
+            </summary>
+            <param name="x">The value of the x-component of the vector.</param>
+            <param name="y">The value of the y-component of the vector.</param>
+            <param name="z">The value of the z-component of the vector.</param>
+        </member>
+        <member name="M:RealSense.Net.Vector3.Equals(RealSense.Net.Vector3)">
+            <summary>
+            Returns a value indicating whether this instance is equal to a specified
+            <see cref="T:RealSense.Net.Vector3"/> value.
+            </summary>
+            <param name="other">A <see cref="T:RealSense.Net.Vector3"/> value to compare to this instance.</param>
+            <returns>
+            <b>true</b> if <paramref name="other"/> has the same X, Y and Z components as
+            this instance; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Vector3.Equals(System.Object)">
+            <summary>
+            Returns a value indicating whether this instance is equal to a specified object.
+            </summary>
+            <param name="obj">An object to compare with this instance.</param>
+            <returns>
+            <b>true</b> if <paramref name="obj"/> is an instance of <see cref="T:RealSense.Net.Vector3"/> and
+            has the same X, Y and Z components as this instance; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Vector3.GetHashCode">
+            <summary>
+            Returns the hash code for this instance.
+            </summary>
+            <returns>A 32-bit signed integer hash code.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector3.ToString">
+            <summary>
+            Converts the numeric value of this instance to its equivalent string representation.
+            </summary>
+            <returns>
+            The string representation of the X, Y and Z components of this instance.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Vector3.Negate(RealSense.Net.Vector3)">
+            <summary>
+            Returns a new vector pointing in the opposite direction of the
+            source vector.
+            </summary>
+            <param name="value">The source vector.</param>
+            <returns>A vector pointing in the opposite direction of the source vector.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector3.Negate(RealSense.Net.Vector3@,RealSense.Net.Vector3@)">
+            <summary>
+            Returns a new vector pointing in the opposite direction of the
+            source vector.
+            </summary>
+            <param name="value">The source vector.</param>
+            <param name="result">A vector pointing in the opposite direction of the source vector.</param>
+        </member>
+        <member name="M:RealSense.Net.Vector3.Add(RealSense.Net.Vector3,RealSense.Net.Vector3)">
+            <summary>
+            Adds two vectors and returns the result as a new <see cref="T:RealSense.Net.Vector3"/>.
+            </summary>
+            <param name="value1">The first vector to add.</param>
+            <param name="value2">The second vector to add.</param>
+            <returns>The sum of the two vectors.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector3.Add(RealSense.Net.Vector3@,RealSense.Net.Vector3@,RealSense.Net.Vector3@)">
+            <summary>
+            Adds two vectors and returns the result as a new <see cref="T:RealSense.Net.Vector3"/>.
+            </summary>
+            <param name="value1">The first vector to add.</param>
+            <param name="value2">The second vector to add.</param>
+            <param name="result">The sum of the two vectors.</param>
+        </member>
+        <member name="M:RealSense.Net.Vector3.Subtract(RealSense.Net.Vector3,RealSense.Net.Vector3)">
+            <summary>
+            Subtracts a vector from another vector and returns the result as a new
+            <see cref="T:RealSense.Net.Vector3"/>.
+            </summary>
+            <param name="value1">The vector from which the other vector will be subtracted.</param>
+            <param name="value2">The vector that is to be subtracted.</param>
+            <returns>The result of the subtraction.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector3.Subtract(RealSense.Net.Vector3@,RealSense.Net.Vector3@,RealSense.Net.Vector3@)">
+            <summary>
+            Subtracts a vector from another vector and returns the result as a new
+            <see cref="T:RealSense.Net.Vector3"/>.
+            </summary>
+            <param name="value1">The vector from which the other vector will be subtracted.</param>
+            <param name="value2">The vector that is to be subtracted.</param>
+            <param name="result">The result of the subtraction.</param>
+        </member>
+        <member name="M:RealSense.Net.Vector3.Multiply(RealSense.Net.Vector3,System.Single)">
+            <summary>
+            Multiplies a vector by a scalar value and returns the result as
+            a new <see cref="T:RealSense.Net.Vector3"/>.
+            </summary>
+            <param name="value1">The source vector.</param>
+            <param name="value2">The scalar value.</param>
+            <returns>The result of the multiplication.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector3.Multiply(RealSense.Net.Vector3@,System.Single,RealSense.Net.Vector3@)">
+            <summary>
+            Multiplies a vector by a scalar value and returns the result as
+            a new <see cref="T:RealSense.Net.Vector3"/>.
+            </summary>
+            <param name="value1">The source vector.</param>
+            <param name="value2">The scalar value.</param>
+            <param name="result">The result of the multiplication.</param>
+        </member>
+        <member name="M:RealSense.Net.Vector3.Multiply(RealSense.Net.Vector3,RealSense.Net.Vector3)">
+            <summary>
+            Multiplies the components of two vectors by each other and returns
+            the result as a new <see cref="T:RealSense.Net.Vector3"/>.
+            </summary>
+            <param name="value1">The first vector to multiply the components of.</param>
+            <param name="value2">The second vector to multiply the components of.</param>
+            <returns>The result of the multiplication.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector3.Multiply(RealSense.Net.Vector3@,RealSense.Net.Vector3@,RealSense.Net.Vector3@)">
+            <summary>
+            Multiplies the components of two vectors by each other and returns
+            the result as a new <see cref="T:RealSense.Net.Vector3"/>.
+            </summary>
+            <param name="value1">The first vector to multiply the components of.</param>
+            <param name="value2">The second vector to multiply the components of.</param>
+            <param name="result">The result of the multiplication.</param>
+        </member>
+        <member name="M:RealSense.Net.Vector3.Divide(RealSense.Net.Vector3,System.Single)">
+            <summary>
+            Divides a vector by a scalar value and returns the result as
+            a new <see cref="T:RealSense.Net.Vector3"/>.
+            </summary>
+            <param name="value1">The source vector.</param>
+            <param name="value2">The scalar value.</param>
+            <returns>The result of the division.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector3.Divide(RealSense.Net.Vector3@,System.Single,RealSense.Net.Vector3@)">
+            <summary>
+            Divides a vector by a scalar value and returns the result as
+            a new <see cref="T:RealSense.Net.Vector3"/>.
+            </summary>
+            <param name="value1">The source vector.</param>
+            <param name="value2">The scalar value.</param>
+            <param name="result">The result of the division.</param>
+        </member>
+        <member name="M:RealSense.Net.Vector3.Divide(RealSense.Net.Vector3,RealSense.Net.Vector3)">
+            <summary>
+            Divides the components of a vector by the components of another vector
+            and returns the result as a new <see cref="T:RealSense.Net.Vector3"/>.
+            </summary>
+            <param name="value1">The vector whose components will be divided.</param>
+            <param name="value2">The divisor vector.</param>
+            <returns>The result of the division.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector3.Divide(RealSense.Net.Vector3@,RealSense.Net.Vector3@,RealSense.Net.Vector3@)">
+            <summary>
+            Divides the components of a vector by the components of another vector
+            and returns the result as a new <see cref="T:RealSense.Net.Vector3"/>.
+            </summary>
+            <param name="value1">The vector whose components will be divided.</param>
+            <param name="value2">The divisor vector.</param>
+            <param name="result">The result of the division.</param>
+        </member>
+        <member name="M:RealSense.Net.Vector3.Dot(RealSense.Net.Vector3,RealSense.Net.Vector3)">
+            <summary>
+            Calculates the dot product of two vectors.
+            </summary>
+            <param name="value1">The first source vector.</param>
+            <param name="value2">The second source vector.</param>
+            <returns>The dot product of the two source vectors.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector3.Dot(RealSense.Net.Vector3@,RealSense.Net.Vector3@,System.Single@)">
+            <summary>
+            Calculates the dot product of two vectors.
+            </summary>
+            <param name="value1">The first source vector.</param>
+            <param name="value2">The second source vector.</param>
+            <param name="result">The dot product of the two source vectors.</param>
+        </member>
+        <member name="M:RealSense.Net.Vector3.op_Equality(RealSense.Net.Vector3,RealSense.Net.Vector3)">
+            <summary>
+            Tests whether two <see cref="T:RealSense.Net.Vector3"/> structures are equal.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Vector3"/> structure on the left of the equality operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Vector3"/> structure on the right of the equality operator.
+            </param>
+            <returns>
+            <b>true</b> if <paramref name="left"/> and <paramref name="right"/> have
+            equal X, Y and Z components; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Vector3.op_Inequality(RealSense.Net.Vector3,RealSense.Net.Vector3)">
+            <summary>
+            Tests whether two <see cref="T:RealSense.Net.Vector3"/> structures are different.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Vector3"/> structure on the left of the inequality operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Vector3"/> structure on the right of the inequality operator.
+            </param>
+            <returns>
+            <b>true</b> if <paramref name="left"/> and <paramref name="right"/> differ
+            in X, Y or Z components; <b>false</b> if <paramref name="left"/> and
+            <paramref name="right"/> are equal.
+            </returns>
+        </member>
+        <member name="M:RealSense.Net.Vector3.op_UnaryNegation(RealSense.Net.Vector3)">
+            <summary>
+            Returns a new vector pointing in the opposite direction of the
+            source vector.
+            </summary>
+            <param name="value">The source vector.</param>
+            <returns>A vector pointing in the opposite direction of the source vector.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector3.op_Addition(RealSense.Net.Vector3,RealSense.Net.Vector3)">
+            <summary>
+            Adds two vectors and returns the result as a new <see cref="T:RealSense.Net.Vector3"/>.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Vector3"/> structure on the left of the addition operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Vector3"/> structure on the right of the addition operator.
+            </param>
+            <returns>The sum of the two vectors.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector3.op_Subtraction(RealSense.Net.Vector3,RealSense.Net.Vector3)">
+            <summary>
+            Subtracts a vector from another vector and returns the result as a new
+            <see cref="T:RealSense.Net.Vector3"/>.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Vector3"/> structure on the left of the subtraction operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Vector3"/> structure on the right of the subtraction operator.
+            </param>
+            <returns>The result of the subtraction.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector3.op_Multiply(System.Single,RealSense.Net.Vector3)">
+            <summary>
+            Multiplies a vector by a scalar value and returns the result as
+            a new <see cref="T:RealSense.Net.Vector3"/>.
+            </summary>
+            <param name="left">
+            The scalar value on the left of the multiplication operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Vector3"/> structure on the right of the multiplication operator.
+            </param>
+            <returns>The result of the multiplication.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector3.op_Multiply(RealSense.Net.Vector3,System.Single)">
+            <summary>
+            Multiplies a vector by a scalar value and returns the result as
+            a new <see cref="T:RealSense.Net.Vector3"/>.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Vector3"/> structure on the left of the multiplication operator.
+            </param>
+            <param name="right">
+            The scalar value on the right of the multiplication operator.
+            </param>
+            <returns>The result of the multiplication.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector3.op_Multiply(RealSense.Net.Vector3,RealSense.Net.Vector3)">
+            <summary>
+            Multiplies the components of two vectors by each other and returns
+            the result as a new <see cref="T:RealSense.Net.Vector3"/>.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Vector3"/> structure on the left of the multiplication operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Vector3"/> structure on the right of the multiplication operator.
+            </param>
+            <returns>The result of the multiplication.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector3.op_Division(RealSense.Net.Vector3,System.Single)">
+            <summary>
+            Divides a vector by a scalar value and returns the result as
+            a new <see cref="T:RealSense.Net.Vector3"/>.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Vector3"/> structure on the left of the division operator.
+            </param>
+            <param name="right">
+            The scalar value on the right of the division operator.
+            </param>
+            <returns>The result of the division.</returns>
+        </member>
+        <member name="M:RealSense.Net.Vector3.op_Division(RealSense.Net.Vector3,RealSense.Net.Vector3)">
+            <summary>
+            Divides the components of a vector by the components of another vector
+            and returns the result as a new <see cref="T:RealSense.Net.Vector3"/>.
+            </summary>
+            <param name="left">
+            The <see cref="T:RealSense.Net.Vector3"/> structure on the left of the division operator.
+            </param>
+            <param name="right">
+            The <see cref="T:RealSense.Net.Vector3"/> structure on the right of the division operator.
+            </param>
+            <returns>The result of the division.</returns>
+        </member>
+    </members>
+</doc>
